@@ -1,0 +1,30 @@
+body{
+    background-color: #00008b;
+}
+
+.login{
+    background-color: #ffffff;
+    display: block;
+    padding: 3rem;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    &__title{
+        color: #00008b;
+        margin-bottom: 2rem;
+    }
+
+    &__input{
+        margin-top: 1rem;
+    }
+
+    &__inlog-button{
+        margin-top: 1.5rem;
+    }
+
+    &__account-buttons{
+        display: flex;
+    }
+}
