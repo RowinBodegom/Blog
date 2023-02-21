@@ -2,20 +2,20 @@
 <template>
     <section class="login">
         <h1 class="login__title">INLOGGEN</h1>
-        <form action="" method="post">
+        <div>
             <div class="login__input">
-                <input type="text" name="username" placeholder="Gebruikersnaam">
+                <input v-model="username" type="text" name="username" placeholder="Gebruikersnaam">
             </div>
             <div class="login__input">
-                <input type="password" name="password" placeholder="Wachtwoord">
+                <input v-model="password" type="password" name="password" placeholder="Wachtwoord">
             </div>
             <div class="login__input">
-                <input type="checkbox" name="privacycheck"><label for="privacycheck">Ja, ik ga akkoord met de privacyverklaring</label>
+                <input v-model="checkbox" type="checkbox" name="privacycheck"><label for="privacycheck">Ja, ik ga akkoord met de privacyverklaring</label>
             </div>
             <div class="login__inlog-button">
-                <input type="button" value="Inloggen">
+                <button @click="sendLoginRequest()">Login</button>
             </div>
-        </form>
+        </div>
 
         <section class="login__account-buttons">
             <p><router-link to="#">Wachtwoord vergeten</router-link></p>
@@ -23,3 +23,30 @@
         </section>
     </section>
 </template>
+
+<script>
+import axios from 'axios'
+
+export default {
+    data(){
+        return {
+            username: null,
+            password: null,
+            checkbox: false,
+        }
+    },
+    methods: {
+        sendLoginRequest(){
+            if(this.checkbox){
+                axios.post("/api/login", {
+                    'username': this.username,
+                    'password': this.password,
+                })
+                .then((response) => {
+                    console.log(response)
+                })
+            }
+        }
+    }
+}
+</script>
