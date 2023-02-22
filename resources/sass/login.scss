@@ -1,9 +1,15 @@
-body{
-    background-color: #111B4E;
+.body{
+    background-color: $Blue;
+    background-image: url("../assets/writing.png");
+    background-repeat: no-repeat;
+    background-position: 5rem center;
+    height: 100vh;
+    background-size: 55rem;
 }
 
 .login{
-    background-color: #ffffff;
+    font-family: 'Work Sans', sans-serif;
+    background-color: $lightWhite;
     display: block;
     padding: 3rem;
     position: absolute;
@@ -14,37 +20,33 @@ body{
 
 
     &__title{
-        color: #111B4E;
+        color: $Blue;
         margin-bottom: 2rem;
+        font-weight: bold;
     }
 
     &__box--input{
         margin-top: 1rem;
-        color: rgb(151, 151, 151);
+        color: $lightGray;
     }
 
     &__input{
         width: 100%;
         border-radius: 1rem;
-        border: 1px solid rgb(151, 151, 151);
+        border: 1px solid $lightGray;
         padding: 0.5rem;
     }
 
-    &__inlog{
-        &--button{
-            margin-top: 1.5rem;
-
-            input{
-                background-color: #ffa500;
-                color: #ffffff;
-                padding: 0.5rem 1.5rem;
-                border: none;
-                border-radius: 1rem;
-            }
-        }
+    &__inlogbutton{
+        background-color: $Orange;
+        color: $lightWhite;
+        padding: 0.5rem 1.5rem;
+        border: none;
+        border-radius: 1rem;
     }
 
     &__account{
+
         &--buttons{
             display: flex;
             justify-content: space-between;
@@ -52,12 +54,12 @@ body{
 
             &--left{
                 text-decoration: none;
-                color: rgb(151, 151, 151);
+                color: $lightGray;
             }
 
             &--right{
                 text-decoration: none;
-                color: #e29402;
+                color: $Orange;
             }
         }
     }

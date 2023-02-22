@@ -9,9 +9,9 @@
   justify-content: space-between;
   align-items: center;
   position: sticky;
-  background-color: blueviolet;
+  background-color: #111B4E;
   padding: 1rem 0;
-  color: white;
+  color: #FFFFFF;
 }
 .header__logo {
   display: flex;
@@ -19,11 +19,11 @@
   margin-left: 3rem;
 }
 .header__logo--foto {
-  height: 3rem;
-  width: 3rem;
+  height: 2.5rem;
+  width: 2.5rem;
 }
 .header__logo--text {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: bold;
 }
 .header__rightSide {
@@ -42,12 +42,18 @@
   width: 3rem;
 }
 
-body {
+.body {
   background-color: #111B4E;
+  background-image: url(/images/writing.png?6eb4d47e24db92b23b3c3106bd18bfd9);
+  background-repeat: no-repeat;
+  background-position: 5rem center;
+  height: 100vh;
+  background-size: 55rem;
 }
 
 .login {
-  background-color: #ffffff;
+  font-family: "Work Sans", sans-serif;
+  background-color: #FFFFFF;
   display: block;
   padding: 3rem;
   position: absolute;
@@ -59,23 +65,21 @@ body {
 .login__title {
   color: #111B4E;
   margin-bottom: 2rem;
+  font-weight: bold;
 }
 .login__box--input {
   margin-top: 1rem;
-  color: rgb(151, 151, 151);
+  color: #7B7B7B;
 }
 .login__input {
   width: 100%;
   border-radius: 1rem;
-  border: 1px solid rgb(151, 151, 151);
+  border: 1px solid #7B7B7B;
   padding: 0.5rem;
 }
-.login__inlog--button {
-  margin-top: 1.5rem;
-}
-.login__inlog--button input {
-  background-color: #ffa500;
-  color: #ffffff;
+.login__inlogbutton {
+  background-color: #D66D35;
+  color: #FFFFFF;
   padding: 0.5rem 1.5rem;
   border: none;
   border-radius: 1rem;
@@ -87,9 +91,9 @@ body {
 }
 .login__account--buttons--left {
   text-decoration: none;
-  color: rgb(151, 151, 151);
+  color: #7B7B7B;
 }
 .login__account--buttons--right {
   text-decoration: none;
-  color: #e29402;
+  color: #D66D35;
 }

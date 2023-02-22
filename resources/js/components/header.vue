@@ -1,5 +1,4 @@
 <template>
-    
     <header class="header">
         <div class="header__logo">
             <img class="header__logo--foto" :src="logo"/>
