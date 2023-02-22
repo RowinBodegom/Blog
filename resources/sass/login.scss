@@ -1,5 +1,5 @@
 body{
-    background-color: #00008b;
+    background-color: #111B4E;
 }
 
 .login{
@@ -10,21 +10,55 @@ body{
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+    border-radius: 2rem 2rem 0 0;
+
 
     &__title{
-        color: #00008b;
+        color: #111B4E;
         margin-bottom: 2rem;
     }
 
-    &__input{
+    &__box--input{
         margin-top: 1rem;
+        color: rgb(151, 151, 151);
     }
 
-    &__inlog-button{
-        margin-top: 1.5rem;
+    &__input{
+        width: 100%;
+        border-radius: 1rem;
+        border: 1px solid rgb(151, 151, 151);
+        padding: 0.5rem;
     }
 
-    &__account-buttons{
-        display: flex;
+    &__inlog{
+        &--button{
+            margin-top: 1.5rem;
+
+            input{
+                background-color: #ffa500;
+                color: #ffffff;
+                padding: 0.5rem 1.5rem;
+                border: none;
+                border-radius: 1rem;
+            }
+        }
+    }
+
+    &__account{
+        &--buttons{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5rem;
+
+            &--left{
+                text-decoration: none;
+                color: rgb(151, 151, 151);
+            }
+
+            &--right{
+                text-decoration: none;
+                color: #e29402;
+            }
+        }
     }
 }

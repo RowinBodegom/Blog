@@ -4,36 +4,8 @@
   box-sizing: border-box;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  background-color: blueviolet;
-  padding: 1rem 0;
-  color: white;
-}
-.header__logo {
-  display: flex;
-  align-items: center;
-}
-.header__logo--foto {
-  height: 3rem;
-}
-.header__logo--text {
-  font-size: 3rem;
-}
-.header__menubar {
-  display: flex;
-  gap: 1rem;
-  list-style-type: none;
-}
-.header__person--foto {
-  height: 3rem;
-}
-
 body {
-  background-color: #111B4E;
+  background-color: #00008b;
 }
 
 .login {
@@ -47,7 +19,7 @@ body {
   border-radius: 2rem 2rem 0 0;
 }
 .login__title {
-  color: #111B4E;
+  color: #00008b;
   margin-bottom: 2rem;
 }
 .login__box--input {
@@ -83,3 +55,7 @@ body {
   text-decoration: none;
   color: #e29402;
 }
+
+header ul {
+  color: white;
+}/*# sourceMappingURL=app.css.map */

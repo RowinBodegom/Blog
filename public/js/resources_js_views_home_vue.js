@@ -70,7 +70,6 @@ __webpack_require__.r(__webpack_exports__);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_example = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("example");
-
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_example);
 }
 
