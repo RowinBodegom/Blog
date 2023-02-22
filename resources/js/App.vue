@@ -1,8 +1,11 @@
 <template>
-    <router-link to="/" exact>home</router-link>
-    <router-link to="/about">about</router-link>
+    <Header/>
     <router-view></router-view>
 </template>
+
+<script setup>
+import Header from './components/Header.vue';
+</script>
 
 <script>
 export default {

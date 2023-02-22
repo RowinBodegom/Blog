@@ -9,7 +9,17 @@ const routes = [
         path: '/about',
         name: 'About',
         component: () => import("../views/about")
-    }
+    },
+    {
+        path: '/createAccount',
+        name: 'createAccount',
+        component: () => import("../views/createAccount")
+    },
+    {
+        path: '/login',
+        name: 'login',
+        component: () => import("../views/login")
+    },
 ]
 const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),

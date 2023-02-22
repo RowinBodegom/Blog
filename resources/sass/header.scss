@@ -1,0 +1,43 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    background-color: $Blue;
+    padding: 1rem 0;
+    color: $lightWhite;
+
+    &__logo{
+        display: flex;
+        align-items: center;
+        margin-left: 3rem;
+
+        &--foto{
+            height: 2.5rem;
+            width: 2.5rem;
+        }
+
+        &--text{
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+    }
+
+    &__rightSide{
+        display: flex;
+        align-items: center;
+    }
+
+    &__menubar{
+        display: flex;
+        gap: 1rem;
+        list-style-type: none;
+    }
+
+    &__person--foto{
+        height: 3rem;
+        border-radius: 50%;
+        margin: 0 3rem;
+        width: 3rem;
+    }
+}

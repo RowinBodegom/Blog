@@ -1,0 +1,66 @@
+.body{
+    background-color: $Blue;
+    background-image: url("../assets/writing.png");
+    background-repeat: no-repeat;
+    background-position: 5rem center;
+    height: 100vh;
+    background-size: 55rem;
+}
+
+.login{
+    font-family: 'Work Sans', sans-serif;
+    background-color: $lightWhite;
+    display: block;
+    padding: 3rem;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2rem 2rem 0 0;
+
+
+    &__title{
+        color: $Blue;
+        margin-bottom: 2rem;
+        font-weight: bold;
+    }
+
+    &__box--input{
+        margin-top: 1rem;
+        color: $lightGray;
+    }
+
+    &__input{
+        width: 100%;
+        border-radius: 1rem;
+        border: 1px solid $lightGray;
+        padding: 0.5rem;
+    }
+
+    &__inlogbutton{
+        background-color: $Orange;
+        color: $lightWhite;
+        padding: 0.5rem 1.5rem;
+        border: none;
+        border-radius: 1rem;
+    }
+
+    &__account{
+
+        &--buttons{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5rem;
+
+            &--left{
+                text-decoration: none;
+                color: $lightGray;
+            }
+
+            &--right{
+                text-decoration: none;
+                color: $Orange;
+            }
+        }
+    }
+}
