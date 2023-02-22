@@ -10,14 +10,22 @@
     &__logo{
         display: flex;
         align-items: center;
+        margin-left: 3rem;
 
         &--foto{
             height: 3rem;
+            width: 3rem;
         }
 
         &--text{
             font-size: 3rem;
+            font-weight: bold;
         }
+    }
+
+    &__rightSide{
+        display: flex;
+        align-items: center;
     }
 
     &__menubar{
@@ -28,5 +36,8 @@
 
     &__person--foto{
         height: 3rem;
+        border-radius: 50%;
+        margin: 0 3rem;
+        width: 3rem;
     }
 }

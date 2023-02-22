@@ -5,7 +5,7 @@
             <img class="header__logo--foto" :src="logo"/>
             <p class="header__logo--text">BLOG.</p>
         </div>
-        <div class="header__">
+        <div class="header__rightSide">
             <nav class="header__navigationbar">
                 <ul class="header__menubar">
                     <li>Home</li>
