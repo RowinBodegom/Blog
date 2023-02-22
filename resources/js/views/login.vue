@@ -41,11 +41,14 @@ export default {
         sendLoginRequest(){
             if(this.checkbox){
                 axios.post("/api/login", {
-                    'username': this.username,
+                    'name': this.username,
                     'password': this.password,
                 })
                 .then((response) => {
-                    console.log(response)
+                    this.$router.push("/")
+                })
+                .catch((error) => {
+                    console.warn(error);
                 })
             }
         }
