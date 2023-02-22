@@ -24,8 +24,8 @@ class UserSeeder extends Seeder
         $users = array(
             array(
                 'name' => 'rowin', 
-            'email' => 'rowin@intermixmanagement.nl', 
-            'password' => 'Bodegom2003@'
+                'email' => 'rowin@intermixmanagement.nl', 
+                'password' => 'Bodegom2003@'
             ),
 
             array(
@@ -33,8 +33,19 @@ class UserSeeder extends Seeder
                 'email' => 'airto@intermixmanagement.nl', 
                 'password' => 'Vugt2003@'
             ),
+
+            array(
+                'name' => 'rowin', 
+                'email' => 'cool@mail.nl', 
+                'password' => 'password2003@'
+            ),
         );
-        
-        DB::table('users')->insert($users);
+        foreach ($users as $user){
+            DB::table('users')->insert([
+                'name' => $user['name'],
+                'email' => $user['email'],
+                'password' => Hash::make($user['password']),
+            ]);
+        }
     }
 }

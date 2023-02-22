@@ -22,4 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Route::post('/login', function (Request $request) {
 //     return redirect([UserController::class, 'show']);
 // });
-Route::post('/login', [loginController::class, 'someMethod']);
+Route::post('/login', [loginController::class, 'checkLogin']);
