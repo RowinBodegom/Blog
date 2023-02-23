@@ -25,7 +25,7 @@
 </template>
 
 <script>
-document.body.classList.add("body");
+document.body.classList.add("loginBody");
 
 import axios from 'axios'
 
