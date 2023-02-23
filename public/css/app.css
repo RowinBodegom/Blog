@@ -42,13 +42,17 @@
   width: 3rem;
 }
 
-.body {
+.loginBody {
   background-color: #111B4E;
+  overflow: hidden;
+}
+
+.backgroundPicture {
+  display: block;
   background-image: url(/images/writing.png?6eb4d47e24db92b23b3c3106bd18bfd9);
   background-repeat: no-repeat;
-  background-position: 5rem center;
+  background-size: 100vh;
   height: 100vh;
-  background-size: 55rem;
 }
 
 .login {
