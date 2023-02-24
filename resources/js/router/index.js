@@ -19,6 +19,11 @@ const routes = [
         path: '/register',
         name: 'register',
         component: () => import("../views/register")
+    },
+    {
+        path: '/profilePage',
+        name: 'profilePage',
+        component: () => import("../views/profilePage")
     }
 ]
 const router = createRouter({
