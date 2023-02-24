@@ -20,26 +20,31 @@ class blogpost extends Seeder
             array(
                 'title' => 'nice weather', 
                 'text' => 'its such nice weather outside.', 
+                'userID' => 1, 
             ),
 
             array(
                 'title' => 'sunny weather', 
                 'text' => 'i love the sunny weather it gives me a tan!', 
+                'userID' => 1, 
             ),
 
             array(
                 'title' => 'rainy weather', 
                 'text' => 'the rain from this rainy weather is giving my plants water.', 
+                'userID' => 2, 
             ),
 
             array(
                 'title' => 'stormy weather', 
                 'text' => 'i just saw lighting strike a bush it was awesome!', 
+                'userID' => 3, 
             ),
 
             array(
                 'title' => 'windy weather', 
-                'text' => 'this wind is blowing out all this candles that i put in my window.', 
+                'text' => 'this wind is blowing out all this candles that i put in my window.',
+                'userID' => 2,  
             ),
         );
         foreach ($posts as $post){
@@ -47,6 +52,7 @@ class blogpost extends Seeder
                 'title' => $post['title'],
                 'text' => $post['text'],
                 'madedate' =>  date("Y-m-d H:i:s"),
+                'userID' => $post['userID'],
             ]);
         }
     }

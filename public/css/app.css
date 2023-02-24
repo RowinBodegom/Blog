@@ -8,6 +8,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: -webkit-sticky;
   position: sticky;
   background-color: #111B4E;
   padding: 1rem 0;
@@ -95,5 +96,77 @@
 }
 .login__account--buttons--right {
   text-decoration: none;
+  color: #D66D35;
+}
+
+.home__container {
+  display: grid;
+}
+.home__container--main {
+  background-color: red;
+  grid-template-columns: 28% 72%;
+  margin: 3vw 2vw;
+}
+.home__container--secondary {
+  padding: 0 2vw;
+  background-color: blue;
+  grid-row-gap: 2vw;
+}
+.home__container--tertiary {
+  background-color: yellow;
+  grid-template-columns: 49% 49%;
+  grid-column-gap: 2%;
+  text-align: center;
+}
+.home__post--create {
+  background-color: white;
+}
+
+.card {
+  background-color: white;
+  margin-bottom: 1.5rem;
+}
+.card__container {
+  display: grid;
+  grid-template-columns: 20% 50% 30%;
+  margin-top: 0.6vw;
+}
+.card__pfp {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  margin-left: 1rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.card__username {
+  display: flex;
+  align-items: center;
+  font-weight: bolder;
+  margin-left: 1vw;
+  font-size: 1rem;
+  color: #111B4E;
+}
+.card__time {
+  display: flex;
+  align-items: center;
+  color: #D66D35;
+}
+.card__banner {
+  width: 5rem;
+  height: 5rem;
+}
+.card__title {
+  font-size: 2.5rem;
+  color: #111B4E;
+}
+.card__text {
+  font-weight: 100;
+}
+.card__button--detail {
+  background-color: white;
+  border: 1px solid #D66D35;
+  border-radius: 1rem;
+  padding: 0.4rem 1.2rem;
   color: #D66D35;
 }
