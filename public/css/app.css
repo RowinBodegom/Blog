@@ -8,10 +8,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: sticky;
+  position: fixed;
+  top: 0;
+  width: 100%;
   background-color: #111B4E;
   padding: 1rem 0;
   color: #FFFFFF;
+  z-index: 1;
 }
 .header__logo {
   display: flex;
@@ -21,6 +24,8 @@
 .header__logo--foto {
   height: 2.5rem;
   width: 2.5rem;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .header__logo--text {
   font-size: 2.5rem;
@@ -40,11 +45,12 @@
   border-radius: 50%;
   margin: 0 3rem;
   width: 3rem;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .loginBody {
   background-color: #111B4E;
-  overflow: hidden;
 }
 
 .backgroundPicture {
@@ -100,4 +106,59 @@
 .login__account--buttons--right {
   text-decoration: none;
   color: #D66D35;
+}
+
+.banner {
+  width: 100%;
+  height: 30vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.profilePage {
+  display: flex;
+  padding: 0 3vw;
+  gap: 5vw;
+}
+
+.user {
+  width: 20vw;
+}
+.user__createblog {
+  width: 100vw;
+}
+.user--picture {
+  border-radius: 50%;
+  width: 20vw;
+  height: 20vw;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transform: translateY(-50%);
+}
+
+.blog {
+  width: 80vw;
+}
+.blog__createblog--picture {
+  width: 5%;
+}
+.blog__createblog--input {
+  width: 80%;
+}
+.blog__showblog {
+  display: flex;
+  gap: 5vw;
+}
+.blog__showblog-card {
+  width: 50%;
+  margin-top: 5vw;
+}
+.blog__showblog-card--picture {
+  width: 50px;
+}
+.blog__showblog-card--bigpicture {
+  width: 100%;
+  height: 20vh;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
