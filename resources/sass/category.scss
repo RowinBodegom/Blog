@@ -1,0 +1,32 @@
+.category{
+    &__title{
+        color: $Blue;
+        font-family: $font-work;
+        font-weight: bold;
+        padding: 0.5rem ;
+    }
+    &__button{
+        margin-left: 0.5rem;
+        margin-bottom: 0.5rem;
+        border-radius: 1rem;
+        padding: 0.4rem 1.2rem;
+        &--blue{
+            background-color: $Blue;
+            border: 1px solid $Blue;
+            font-family: $chunkyfive-ex;
+            color: white;
+        }
+        &--white{
+            font-family: $font-work;
+            background-color: white;
+            border: 1px solid $Blue;
+            color: $Blue;
+        }
+        &--orange{
+            font-family: $font-work;
+            background-color: $Orange;
+            border: 1px solid $Orange;
+            color: white;
+        }
+    } 
+}

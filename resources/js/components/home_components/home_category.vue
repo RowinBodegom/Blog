@@ -1,8 +1,9 @@
 <template>
-    <div class="category_-container--buttons">
-        <button class="category__button category__button--blue">one</button>
-        <button class="category__button category__button--white">{{data}}</button>
-        <button class="category__button category__button--orange">tres</button>
+    <p class="category__title">Categorieën</p>
+    <div class="category__container--buttons">
+        <button class="category__button category__button--blue">Alle blogs</button>
+        <button v-for="name in data" class="category__button category__button--white">{{ name["name"] }}</button>
+        <button class="category__button category__button--orange">Bekijk alle categorieën</button>
     </div>
     
     </template>

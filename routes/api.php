@@ -26,5 +26,6 @@ Route::post('/login', [loginController::class, 'checkLogin']);
 
 Route::get("/getCards", [cardController::class, 'getData']);
 Route::get("/getCategory", [categoryController::class, 'getData']);
+Route::get("/getSmallCard", [cardController::class, 'getSmallCardData']);
 
 Route::post('/register', [registerController::class, 'registerPerson']);

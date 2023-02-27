@@ -23,4 +23,12 @@ class cardController extends BaseController {
         }
         return $items;
     }
+    public function getSmallCardData() {
+        $items = blogpost::inRandomOrder()->limit(4)->get();
+        foreach( $items as $item) {
+            $user = user::where('id', $item->userID)->select(['id','name'])->first();
+            $item->userID = $user;
+        }
+        return $items;
+    }
 }
