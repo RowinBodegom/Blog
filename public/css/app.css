@@ -116,7 +116,6 @@
   background-color: yellow;
   grid-template-columns: 49% 49%;
   grid-column-gap: 2%;
-  text-align: center;
 }
 .home__post--create {
   background-color: white;
@@ -127,11 +126,19 @@
   margin-bottom: 1.5rem;
 }
 .card__container {
-  display: grid;
-  grid-template-columns: 20% 50% 30%;
-  margin-top: 0.6vw;
+  display: flex;
+  margin: 0.6vw 0;
+  justify-content: space-between;
+}
+.card__container--left {
+  display: flex;
+}
+.card__container--right {
+  display: flex;
+  justify-content: flex-end;
 }
 .card__pfp {
+  display: inline-block;
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
@@ -150,18 +157,25 @@
 .card__time {
   display: flex;
   align-items: center;
+  margin-right: 1vw;
   color: #D66D35;
 }
 .card__banner {
-  width: 5rem;
-  height: 5rem;
+  width: 100%;
+  height: 20rem;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .card__title {
   font-size: 2.5rem;
   color: #111B4E;
 }
 .card__text {
+  margin-bottom: 1rem;
   font-weight: 100;
+}
+.card__button {
+  margin-bottom: 1rem;
 }
 .card__button--detail {
   background-color: white;
@@ -169,4 +183,7 @@
   border-radius: 1rem;
   padding: 0.4rem 1.2rem;
   color: #D66D35;
+}
+.card__description {
+  margin-left: 5%;
 }

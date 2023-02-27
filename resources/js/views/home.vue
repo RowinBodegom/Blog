@@ -1,6 +1,6 @@
 <template>
     <div class="home__container home__container--main">
-        <Category/>
+        <Category :data="categorydata"/>
         <div class="home__container home__container--secondary">
             <Createpost/>
             <div class="home__container home__container--tertiary">
@@ -23,12 +23,22 @@
 
         data(){
             return {
-                cardData: []
+                cardData: [],
+                categorydata: [],
             }
         },
         created() {
             axios.get('api/getCards')
-            .then(response => this.cardData = response.data);  
+            .then(response => this.cardData = response.data) 
+                .catch((error) => {
+                    console.warn(error)
+                })
+
+            axios.get('api/getCategory')
+            .then(response => this.cardData = response.data)
+                .catch((error) => {
+                    console.warn(error)
+                })
         }
     }
 </script>
