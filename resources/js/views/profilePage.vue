@@ -12,10 +12,10 @@
                     <img class="blog__createblog--picture" :src="logo"/>
                     <p @click="clickHandler()">schrijf een blog</p>
                     <div class="blog__createblog-container" id="createblogContainer">
-                        <label for="">titel blog</label><input type="text">
-                        <label for="">text blog</label><input type="text">
-                        <label for="">foto blog</label><input type="file">
-                        <button>make blog</button>
+                        <label for="title">titel blog:</label><input type="text" name="title">
+                        <label for="text">text blog:</label><input type="text" name="text">
+                        <label for="img">foto blog:</label><input type="file" name="img">
+                        <button @click="createBlog()">make blog</button>
                     </div>
                 </div>
                 <div class="blog__showblog">
@@ -36,11 +36,35 @@
 </script>
 
 <script>
+
+import axios from 'axios'
+
 export default {
+    data(){
+        return {
+            title: null,
+            text: null,
+            img: null,
+        }
+    },
     methods: {
+        createBlog(){
+            axios.post("/api/createBlog", {
+                'title': this.title,
+                'text': this.text,
+                'img': this.img,
+            })
+            .then((response) => {
+                this.$router.push("/");
+            })
+            .catch((error) => {
+                console.warn(error);
+            })
+        },
         clickHandler(){
             document.getElementById("createblogContainer").classList.toggle("blog__createblog-container--show");
         }
     }
+
 }
 </script>
