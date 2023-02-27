@@ -1,0 +1,26 @@
+.home{
+    &__container{
+        display: grid;
+        &--main{
+            background-color: red;
+            grid-template-columns: 28% 72%;
+            margin: 3vw 2vw;
+        }
+        &--secondary{
+            padding: 0 2vw;
+            background-color: blue;
+            grid-row-gap: 2vw;
+        }
+        &--tertiary{
+            background-color: yellow;
+            grid-template-columns: 49% 49%;
+            grid-column-gap: 2%;
+            // text-align: center;
+        }
+    }
+    &__post{
+        &--create{
+            background-color: white;
+        }
+    }
+}

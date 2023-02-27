@@ -1,0 +1,67 @@
+.card{
+    background-color: white;
+    margin-bottom: 1.5rem;
+    &__container{
+        display: flex;
+        // grid-template-columns: auto auto auto;
+        margin: 0.6vw 0;
+        justify-content: space-between;
+
+        &--left {
+            display: flex;
+        }
+
+        &--right{
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+    &__pfp{
+        display: inline-block;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        margin-left: 1rem;
+        object-fit: cover;
+    }
+    &__username{
+        display: flex;
+        align-items: center;
+        font-weight: bolder;
+        margin-left: 1vw;
+        font-size: 1rem;
+        color: $Blue;
+    }
+    &__time{
+        display: flex;
+        align-items:center;
+        margin-right: 1vw;
+        color: $Orange;
+    }
+    &__banner{
+        width: 100%;
+        height: 20rem;
+        object-fit: cover;
+    }
+    &__title{
+        font-size: 2.5rem;
+        color: $Blue;
+    }
+    &__text{
+        margin-bottom: 1rem;
+        font-weight: 100;
+    }
+    &__button{
+        margin-bottom: 1rem;
+        &--detail{
+            background-color: white;
+            border: 1px solid $Orange;
+            border-radius: 1rem;
+            padding: 0.4rem 1.2rem;
+            color: $Orange;
+        }
+    }
+    &__description{
+        margin-left: 5%;
+    }
+}
