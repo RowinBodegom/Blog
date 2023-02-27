@@ -30,13 +30,20 @@
     width: 80vw;
 
     &__createblog{
+        margin: 5vh 0;
+        display: flex;
+        align-items: center;
 
         &--picture{
             width: 5%;
         }
 
-        &--input{
-            width: 80%;
+        &-container{
+            display: none;
+
+            &--show{
+                display: block;
+            }
         }
     }
 
@@ -46,7 +53,6 @@
 
         &-card{
             width: 50%;
-            margin-top: 5vw;
 
             &--picture{
                 width: 50px;
