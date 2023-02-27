@@ -1,0 +1,25 @@
+.smallCard{
+    display: grid;
+    grid-template-columns: 3.5rem auto;
+    margin-bottom: 1rem;
+    &__img{
+        display: inline-block;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    &__username{
+        font-family: $font-work;
+        color: $Blue;
+    }
+    &__title{
+        font-family: $font-work;
+        font-weight: bold;
+        color: $Blue;
+    }
+    &__text{
+        font-family: $font-work;
+        color: $lightGray;
+    }
+}
