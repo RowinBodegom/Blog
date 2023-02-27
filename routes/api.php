@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\cardController;
 use App\Http\Controllers\categoryController;
+use App\Http\Controllers\registerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/login', [loginController::class, 'checkLogin']);
 
-
 Route::get("/getCards", [cardController::class, 'getData']);
 Route::get("/getCategory", [categoryController::class, 'getData']);
+
+Route::post('/register', [registerController::class, 'registerPerson']);

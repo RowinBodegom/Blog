@@ -1,0 +1,68 @@
+.banner{
+    width: 100%;
+    height: 30vh;
+    object-fit: cover;
+}
+
+.profilePage{
+    display: flex;
+    padding: 0 3vw;
+    gap: 5vw;
+}
+
+.user{
+    width: 20vw;
+
+    &__createblog{
+        width: 100vw;
+    }
+
+    &--picture{
+        border-radius: 50%;
+        width: 20vw;
+        height: 20vw;
+        object-fit: cover;
+        transform: translateY(-50%);
+    }
+}
+
+.blog{
+    width: 80vw;
+
+    &__createblog{
+        margin: 5vh 0;
+        display: flex;
+        align-items: center;
+
+        &--picture{
+            width: 5%;
+        }
+
+        &-container{
+            display: none;
+
+            &--show{
+                display: block;
+            }
+        }
+    }
+
+    &__showblog{
+        display: flex;
+        gap: 5vw;
+
+        &-card{
+            width: 50%;
+
+            &--picture{
+                width: 50px;
+            }
+
+            &--bigpicture{
+                width: 100%;
+                height: 20vh;
+                object-fit: cover;
+            }
+        }
+    }
+}

@@ -1,10 +1,13 @@
-.body{
+.loginBody{
     background-color: $Blue;
+}
+
+.backgroundPicture{
+    display: block;
     background-image: url("../assets/writing.png");
     background-repeat: no-repeat;
-    background-position: 5rem center;
+    background-size: 100vh;
     height: 100vh;
-    background-size: 55rem;
 }
 
 .login{
