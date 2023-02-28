@@ -51,7 +51,6 @@ class blogpost extends Seeder
             DB::table('blogposts')->insert([
                 'title' => $post['title'],
                 'text' => $post['text'],
-                'madedate' =>  date("Y-m-d H:i:s"),
                 'userID' => $post['userID'],
             ]);
         }
