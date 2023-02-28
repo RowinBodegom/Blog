@@ -14,7 +14,7 @@ class registerController extends BaseController {
         $checkExist = userModel::Where("email", "=", $request["email"])
                                  ->first();
 
-        if($checkExist === null){
+        if(!$checkExist){
             $request['password'] = Hash::make($request['password']);
             userModel::create($request->all());
         }
