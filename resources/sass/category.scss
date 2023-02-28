@@ -15,18 +15,30 @@
             border: 1px solid $Blue;
             font-family: $chunkyfive-ex;
             color: white;
+            &:hover{
+                background-color: $Orange;
+                border-color: $Orange;
+            }
         }
         &--white{
             font-family: $font-work;
             background-color: white;
             border: 1px solid $Blue;
             color: $Blue;
+            &:hover{
+                color: $Orange;
+                border-color: $Orange;
+            }
         }
         &--orange{
             font-family: $font-work;
             background-color: $Orange;
             border: 1px solid $Orange;
             color: white;
+            &:hover{
+                background-color: $Blue;
+                border-color: $Blue;
+            }
         }
     } 
 }

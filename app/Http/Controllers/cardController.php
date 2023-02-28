@@ -16,7 +16,7 @@ class cardController extends BaseController {
     }
 
     public function getData() {
-        $items = blogpost::limit(6)->get();
+        $items = blogpost::inRandomOrder()->limit(6)->get();
         foreach( $items as $item) {
             $user = user::where('id', $item->userID)->select(['id','name'])->first();
             $item->userID = $user;
