@@ -1,0 +1,53 @@
+.home{
+    background-color: $darkWhite;
+    &__container{
+        display: grid;
+        &--main{
+            background-color:  $darkWhite;
+            grid-template-columns: 20% 78%;
+            grid-column-gap: 2%;
+            padding: 2vw 2vw;
+        }
+        &--secondary{
+            // padding: 0 2vw;
+            // background-color: blue;
+            grid-row-gap: 2vw;
+        }
+        &--tertiary{
+            // background-color: yellow;
+            grid-template-columns: 49% 49%;
+            grid-column-gap: 2%;
+            // text-align: center;
+        }
+    }
+    &__leftBlock{
+        &--items{
+            background-color: $lightWhite;
+            height: fit-content;
+            padding-bottom: 1rem;
+        }
+    }
+    &__post{
+        &--create{
+            background-color: $lightWhite;
+        }
+    }
+    &__top-posts{
+        width: 90%;
+        margin: 0 auto;
+        background-color: $lightWhite;
+        &--title{
+            margin-bottom: 1rem;
+            font-family: $chunkyfive-ex;
+            color: $Blue;
+        }
+    }
+    &__category{
+        width: 90%;
+        margin: 0 auto;
+        padding-top: 0.5rem;
+        margin-bottom: 1rem;
+        background-color: $lightWhite;
+        border-bottom: 1px solid grey;
+    }
+}

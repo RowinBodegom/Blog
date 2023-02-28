@@ -11,15 +11,20 @@ const routes = [
         component: () => import("../views/about")
     },
     {
-        path: '/createAccount',
-        name: 'createAccount',
-        component: () => import("../views/createAccount")
-    },
-    {
         path: '/login',
         name: 'login',
         component: () => import("../views/login")
     },
+    {
+        path: '/register',
+        name: 'register',
+        component: () => import("../views/register")
+    },
+    {
+        path: '/profilePage',
+        name: 'profilePage',
+        component: () => import("../views/profilePage")
+    }
 ]
 const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
