@@ -3,7 +3,7 @@
         <div class="card__container">
             <div class="card__container--left">
                 <img class="card__pfp" src="../../assets/tyler-nix-PQeoQdkU9jQ-unsplash.jpg">
-                <div class="card__username">@{{data.userID.name}}</div>
+                <div class="card__username">@{{data.user_id.name}}</div>
             </div>
             <div class="card__container--right">
 
