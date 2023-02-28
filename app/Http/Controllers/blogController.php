@@ -22,6 +22,16 @@ class blogController extends BaseController {
     }
 
     public function createBlogImg(Request $request){
+        $file = $request->file('img');
         $name = time() . "_" . $request->img->getClientOriginalName();
+        $file->move(public_path("../resources/images"), $name);
+        blogModel::insert(
+            [
+                "title" => "fjhtujhgsbjhytfesfe",
+                "text" => "gtfrgejhitt",
+                "userID" => "1",
+                "img" => $name,
+            ]
+        );
     }
 }
