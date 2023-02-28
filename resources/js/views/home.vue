@@ -25,10 +25,10 @@
     import axios from 'axios'
 
     import Card from "../components/card.vue";
+    import smallCard from "../components/smallCard.vue";
     import Category from "../components/home_components/home_category.vue";
     import Createpost from "../components/home_components/home_createpost.vue";
-    import smallCard from "../components/smallCard.vue";
-
+    
     export default {
         name: "home",
         components: {Card,Category,Createpost,smallCard},
