@@ -31,3 +31,4 @@ Route::get("/getCategory", [categoryController::class, 'getData']);
 
 Route::post('/register', [registerController::class, 'registerPerson']);
 Route::post('/createBlog', [blogController::class, 'createBlog']);
+Route::post('/createBlogImg', [blogController::class, 'createBlogImg']);
