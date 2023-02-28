@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 class categoryController extends Controller
 {
     public function getData() {
-        $items = category::inRandomOrder()->limit(5)->get();
-        return $items;
+        return category::inRandomOrder()->limit(5)->get();
     }
 }
