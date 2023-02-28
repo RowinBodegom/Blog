@@ -10,7 +10,7 @@
                     <li>Home</li>
                     <li>Ontdek</li>
                     <li>Volgend</li>
-                    <li>categorieën</li>
+                    <li>Categorieën</li>
                     <li>Top posts</li>
                 </ul>
             </nav>

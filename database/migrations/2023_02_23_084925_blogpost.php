@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('img')->nullable();
             $table->text('text');
             $table->integer('userID');
-            $table->date('madedate');
+            // $table->date('madedate');
+            $table->timestamps();
         });
     }
 

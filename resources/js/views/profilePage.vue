@@ -12,10 +12,11 @@
                     <img class="blog__createblog--picture" :src="logo"/>
                     <p @click="clickHandler()">schrijf een blog</p>
                     <div class="blog__createblog-container" id="createblogContainer">
-                        <label for="">titel blog</label><input type="text">
-                        <label for="">text blog</label><input type="text">
-                        <label for="">foto blog</label><input type="file">
-                        <button>make blog</button>
+                        <label for="title">titel blog:</label><input type="text" name="title" v-model="title">
+                        <label for="text">text blog:</label><input type="text" name="text" v-model="text">
+                        <label for="img">foto blog:</label>
+                        <input type="file" ref="files" name="img" v-on:change="getFile()">
+                        <button @click="createBlog()">make blog</button>
                     </div>
                 </div>
                 <div class="blog__showblog">
@@ -36,8 +37,47 @@
 </script>
 
 <script>
+
+import axios from 'axios'
+
 export default {
+    data(){
+        return {
+            title: null,
+            text: null,
+            img: null,
+        }
+    },
     methods: {
+        getFile(){
+            this.img = this.$refs.files.files[0]
+        },
+        
+        createBlog(){
+            axios.post("/api/createBlog", {
+                'title': this.title,
+                'text': this.text,
+            })
+            .then(() => {
+                console.log(this.img);
+                axios.post("/api/createBlogImg", 
+                {
+                    'img': this.img,
+                },
+                {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                    }
+                }
+                )
+            })
+            .then((response) => {
+                this.$router.push("/profilePage");
+            })
+            .catch((error) => {
+                console.warn(error);
+            })
+        },
         clickHandler(){
             document.getElementById("createblogContainer").classList.toggle("blog__createblog-container--show");
         }
