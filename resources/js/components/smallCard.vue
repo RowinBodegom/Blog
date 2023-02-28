@@ -2,7 +2,7 @@
     <div v-for="item in data" class="smallCard">
         <img class="smallCard__img" :src="person">
         <div class="smallCard__container">
-            <div class="smallCard__username">@{{item.userID.name}}</div>
+            <div class="smallCard__username">@{{item['userID']['name']}}</div>
             <div class="smallCard__title">{{item['title']}}</div>
             <div class="smallCard__text">{{item['text']}}</div>
         </div>

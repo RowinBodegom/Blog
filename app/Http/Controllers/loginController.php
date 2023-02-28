@@ -4,15 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User as userModel;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 
-class loginController extends BaseController {
+class LoginController extends BaseController {
     public $user;
 
     public function __construct(){
-        $this->user = new userModel;
+        $this->user = new User;
     }
 
     public function checkLogin (Request $request) {
