@@ -48,6 +48,10 @@
         border-radius: 1rem;
     }
 
+    &__inlogbutton:hover{
+        background-color: $Blue;
+    }
+
     &__account{
 
         &--buttons{
