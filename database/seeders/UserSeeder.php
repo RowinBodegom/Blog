@@ -35,9 +35,9 @@ class UserSeeder extends Seeder
             ),
 
             array(
-                'name' => 'rowin', 
-                'email' => 'cool@mail.nl', 
-                'password' => 'password2003@'
+                'name' => 'Dennis', 
+                'email' => 'dennis@dennismail.nl', 
+                'password' => 'Dennis2003@'
             ),
         );
         foreach ($users as $user){
