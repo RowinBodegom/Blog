@@ -33,6 +33,7 @@
         margin-left: 1vw;
         font-size: 1rem;
         color: $Blue;
+        transition-duration: 0.3s;
         &:hover{
             color: $Orange;
         }
@@ -71,6 +72,7 @@
             border-radius: 1rem;
             padding: 0.4rem 1.2rem;
             color: $Orange;
+            transition-duration: 0.3s;
             &:hover{
                 color: $Blue;
                 border-color: $Blue;

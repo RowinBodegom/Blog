@@ -47,10 +47,10 @@
         padding: 0.5rem 1.5rem;
         border: none;
         border-radius: 1rem;
-    }
-
-    &__inlogbutton:hover{
-        background-color: $Blue;
+        transition-duration: 0.3s;
+        &:hover{
+            background-color: $Blue;
+        }
     }
 
     &__account{
