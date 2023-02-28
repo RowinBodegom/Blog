@@ -50,7 +50,7 @@ export default {
                     'password': this.password,
                 })
                 .then((response) => {
-                    this.$router.push("/register");
+                    this.$router.push("/");
                 })
                 .catch((error) => {
                     console.warn(error);

@@ -46,7 +46,7 @@ export default {
                     'password': this.password,
                 })
                 .then((response) => {
-                    this.$router.push("/");
+                    this.$router.push("/home");
                 })
                 .catch((error) => {
                     console.warn(error);

@@ -7,7 +7,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 
-class blogpost extends Seeder
+class BlogPost extends Seeder
 {
     /**
      * Run the database seeds.
@@ -44,6 +44,18 @@ class blogpost extends Seeder
             array(
                 'title' => 'windy weather', 
                 'text' => 'this wind is blowing out all this candles that i put in my window.',
+                'userID' => 3,  
+            ),
+
+            array(
+                'title' => 'snowy weather', 
+                'text' => "my car got snowed in and i have to be at work in 5 min :'(",
+                'userID' => 3,  
+            ),
+
+            array(
+                'title' => 'sandy weather', 
+                'text' => 'HELP ME I KEEP GETTING SAND IN MY EYES! IT HURTS SO MUCH! oh thank for the glasses. still sandy tho',
                 'userID' => 2,  
             ),
         );

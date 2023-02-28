@@ -7,14 +7,14 @@
         <div class="header__rightSide">
             <nav class="header__navigationbar">
                 <ul class="header__menubar">
-                    <li>Home</li>
-                    <li>Ontdek</li>
-                    <li>Volgend</li>
-                    <li>Categorieën</li>
-                    <li>Top posts</li>
+                    <li><a class="header__link" href="/home">Home</a></li>
+                    <li><a class="header__link" href="">Ontdek</a></li>
+                    <li><a class="header__link" href="">Volgend</a></li>
+                    <li><a class="header__link" href="">Categorieën</a></li>
+                    <li><a class="header__link" href="">Top posts</a></li>
                 </ul>
             </nav>
-            <img class="header__person--foto" :src="person"/>
+           <a href="/"><img class="header__person--foto" :src="person"/></a> 
         </div>
     </header>
 </template>
