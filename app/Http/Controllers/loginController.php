@@ -17,23 +17,24 @@ class loginController extends BaseController {
 
     public function checkLogin (Request $request) {
         if(strpos( $request , "<") !== false){
-            echo "Found!";
+            return response()->json([
+                'status' => 'failed'
+            ], 400);
         } else {
-            echo "not found!";
-        }
-        if($request){
-            $credentials = $request->validate([
-                'name' => ['required'],
-                'password' => ['required'],
-            ]);
-            
-            if (Auth::attempt($credentials)) {
-                echo Auth::user()->email;    
-            }
-            else {
-                return response()->json([
-                    'status' => 'failed'
-                ], 401);
+            if($request){
+                $credentials = $request->validate([
+                    'name' => ['required'],
+                    'password' => ['required'],
+                ]);
+                
+                if (Auth::attempt($credentials)) {
+                    echo Auth::user()->email;    
+                }
+                else {
+                    return response()->json([
+                        'status' => 'failed'
+                    ], 401);
+                }
             }
         }
     }
