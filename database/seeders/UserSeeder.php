@@ -25,19 +25,22 @@ class UserSeeder extends Seeder
             array(
                 'name' => 'rowin', 
                 'email' => 'rowin@intermixmanagement.nl', 
-                'password' => 'Bodegom2003@'
+                'password' => 'Bodegom2003@',
+                'profile_picture' => 'img',
             ),
 
             array(
                 'name' => 'airto', 
                 'email' => 'airto@intermixmanagement.nl', 
-                'password' => 'Vugt2003@'
+                'password' => 'Vugt2003@',
+                'profile_picture' => 'img',
             ),
 
             array(
                 'name' => 'Dennis', 
                 'email' => 'dennis@dennismail.nl', 
-                'password' => 'Dennis2003@'
+                'password' => 'Dennis2003@',
+                'profile_picture' => 'img',
             ),
         );
         foreach ($users as $user){
@@ -45,6 +48,7 @@ class UserSeeder extends Seeder
                 'name' => $user['name'],
                 'email' => $user['email'],
                 'password' => Hash::make($user['password']),
+                'profile_picture' => $user['profile_picture'],
             ]);
         }
     }

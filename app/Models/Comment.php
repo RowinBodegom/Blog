@@ -5,10 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Comment extends Model
 {
     use HasFactory;
-    protected $table = 'category';
 
     /**
      * The attributes that are mass assignable.
@@ -16,15 +15,12 @@ class Category extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'text',
+        'user_id',
+        'blogpost_id',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
     protected $hidden = [
-        'id',
+        'id'
     ];
 }

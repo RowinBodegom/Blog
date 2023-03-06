@@ -20,50 +20,50 @@ class BlogPost extends Seeder
             array(
                 'title' => 'nice weather', 
                 'text' => 'its such nice weather outside.', 
-                'userID' => 1, 
+                'user_id' => 1, 
             ),
 
             array(
                 'title' => 'sunny weather', 
                 'text' => 'i love the sunny weather it gives me a tan!', 
-                'userID' => 1, 
+                'user_id' => 1, 
             ),
 
             array(
                 'title' => 'rainy weather', 
                 'text' => 'the rain from this rainy weather is giving my plants water.', 
-                'userID' => 2, 
+                'user_id' => 2, 
             ),
 
             array(
                 'title' => 'stormy weather', 
                 'text' => 'i just saw lighting strike a bush it was awesome!', 
-                'userID' => 3, 
+                'user_id' => 3, 
             ),
 
             array(
                 'title' => 'windy weather', 
                 'text' => 'this wind is blowing out all this candles that i put in my window.',
-                'userID' => 3,  
+                'user_id' => 3,  
             ),
 
             array(
                 'title' => 'snowy weather', 
                 'text' => "my car got snowed in and i have to be at work in 5 min :'(",
-                'userID' => 3,  
+                'user_id' => 3,  
             ),
 
             array(
                 'title' => 'sandy weather', 
                 'text' => 'HELP ME I KEEP GETTING SAND IN MY EYES! IT HURTS SO MUCH! oh thank for the glasses. still sandy tho',
-                'userID' => 2,  
+                'user_id' => 2,  
             ),
         );
         foreach ($posts as $post){
             DB::table('blogposts')->insert([
                 'title' => $post['title'],
                 'text' => $post['text'],
-                'userID' => $post['userID'],
+                'user_id' => $post['user_id'],
             ]);
         }
     }

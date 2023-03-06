@@ -6,7 +6,7 @@
         <div class="card__container">
             <div class="card__container--left">
                 <img class="card__pfp" src="../../assets/tyler-nix-PQeoQdkU9jQ-unsplash.jpg">
-                <div class="card__username">@{{data.userID.name}}</div>
+                <div class="card__username">@{{data.user_id.name}}</div>
             </div>
             <div class="card__container--right">
                 <img @click="showEditBlog(data.id)" class="card__write" src="../../assets/draw.png">
@@ -25,18 +25,20 @@
         <div class="card__description">
             <p class="card__title">{{data.title}}</p>
             <p class="card__text">{{data.text}}</p>
-            <button class="card__button card__button--detail">Lees verder</button>
+            <button class="card__button card__button--detail">Lees verder</button> 
+            <div class="comment__container">
+                <Comment :data="data"/>
+            </div>
         </div>
     </div>
-</template>
-
-
-<script>
+</template
+    <script>
+    import Comment from "../components/comment.vue";
 
     import axios from 'axios'
-
     export default {
         name: "card",
+        components: {Comment},
         props: {
             data: Object
         },
