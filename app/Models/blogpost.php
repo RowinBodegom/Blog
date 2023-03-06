@@ -22,6 +22,6 @@ class BlogPost extends Authenticatable
         'title',
         'img',
         'text',
-        'userID',
+        'user_id',
     ];
 }
