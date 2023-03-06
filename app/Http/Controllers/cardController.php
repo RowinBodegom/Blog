@@ -10,21 +10,20 @@ use Illuminate\Http\Request;
 
 class CardController extends BaseController {
 
-    public function getData() {
-        $items = BlogPost::inRandomOrder()->limit(6)->get();
+    public function getData($amount) {
+        $items = BlogPost::inRandomOrder()->limit($amount)->get();
         foreach( $items as $item) {
             $user = User::where('id', $item->user_id)->select(['id','name'])->first();
             $item->user_id = $user;
         }
         return $items;
     }
+    
+    public function getCardData(){
+        return $this->getData(6);
+    }
 
     public function getSmallCardData() {
-        $items = BlogPost::inRandomOrder()->limit(4)->get();
-        foreach( $items as $item) {
-            $user = User::where('id', $item->user_id)->select(['id','name'])->first();
-            $item->user_id = $user;
-        }
-        return $items;
+        return $this->getData(4);
     }
 }

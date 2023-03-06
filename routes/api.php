@@ -26,7 +26,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/login', [LoginController::class, 'checkLogin']);
 
-Route::get("/getCards", [CardController::class, 'getData']);
+Route::get("/getCards", [CardController::class, 'getCardData']);
 Route::get("/getCategory", [CategoryController::class, 'getData']);
 Route::get("/getSmallCard", [CardController::class, 'getSmallCardData']);
 
