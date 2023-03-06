@@ -34,4 +34,5 @@ Route::get("/allBlogs", [BlogController::class, 'getAllBlogs']);
 
 Route::post('/register', [RegisterController::class, 'registerPerson']);
 Route::post('/createBlog', [BlogController::class, 'createBlog']);
+Route::post('/editBlog', [BlogController::class, 'editBlog']);
 Route::post('/deleteBlog/{id}', [BlogController::class, 'deleteBlog']);

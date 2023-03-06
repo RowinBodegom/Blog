@@ -16,9 +16,6 @@ class CardController extends BaseController {
         foreach( $items as $item) {
             $user = User::where('id', $item->userID)->select(['id','name'])->first();
             $item->userID = $user;
-            if ($item->img) {
-                $item->img = "../../../storage/app/public/blogImage/$item->img";
-            }
         }
         return $items;
     }
