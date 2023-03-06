@@ -15,17 +15,21 @@
             <p class="card__title">{{data.title}}</p>
             <p class="card__text">{{data.text}}</p>
             <button class="card__button card__button--detail">Lees verder</button> 
+            <div class="comment__container">
+                <Comment :data="data"/>
+            </div>
+            
         </div>
         
     </div>
-    
-
-    </template>
+</template>
     
     <script>
+    import Comment from "../components/comment.vue";
     export default {
         
         name: "card",
+        components: {Comment},
         props: {
             data: Object
         }
