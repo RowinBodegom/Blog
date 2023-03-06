@@ -10,10 +10,9 @@
             <div class="blog">
                 <div class="blog__createblog">
                     <img class="blog__createblog--picture" :src="logo"/>
-                    <p @click="clickHandler()">schrijf een blog</p>
-                    <div class="blog__createblog-container" id="createblogContainer">
+                    <input type="text" name="text" v-model="text" @click="clickHandler()" placeholder="schrijf een blog">
+                    <div class="blog__createblog__container" id="createblogContainer">
                         <label for="title">titel blog:</label><input type="text" name="title" v-model="title">
-                        <label for="text">text blog:</label><input type="text" name="text" v-model="text">
                         <label for="img">foto blog:</label>
                         <input type="file" ref="files" name="img" v-on:change="getFile()">
                         <button @click="createBlog()">make blog</button>
@@ -75,7 +74,7 @@
                 })
             },
             clickHandler(){
-                document.getElementById("createblogContainer").classList.toggle("blog__createblog-container--show");
+                document.getElementById("createblogContainer").classList.toggle("blog__createblog__container--show");
             }
         }
     }

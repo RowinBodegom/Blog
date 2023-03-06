@@ -27,30 +27,30 @@
 }
 
 .blog{
-    width: 80vw;
+    display: grid;
 
     &__createblog{
         margin: 5vh 0;
         display: flex;
         align-items: center;
-
-        &--picture{
-            width: 5%;
-        }
-
-        &-container{
+        
+        &__container{
             display: none;
 
             &--show{
                 display: block;
             }
         }
+
+        &--picture{
+            width: 5%;
+        }
     }
 
     &__showblog{
         display: grid;
-        grid-template-columns: auto auto;
-        grid-column-gap: 3%;
+        grid-template-columns: 49% 49%;
+        grid-column-gap: 2%;
         grid-row-gap: 3%;
     }
 }
