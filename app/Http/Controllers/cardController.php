@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Storage;
 class CardController extends BaseController {
 
     public function getData() {
-        $items = BlogPost::All();
+        $items = BlogPost::inRandomOrder()->limit(6)->get();
         foreach( $items as $item) {
             $user = User::where('id', $item->userID)->select(['id','name'])->first();
             $item->userID = $user;
