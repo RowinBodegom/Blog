@@ -20,17 +20,14 @@
                     </div>
                 </div>
                 <div class="blog__showblog">
-                    <div v-for="n in 2" class="blog__showblog-card">
-                        <img class="blog__showblog-card--picture" :src="person"/>
-                        <h2></h2>
-                        <img class="blog__showblog-card--bigpicture" :src="person"/>
-                    </div>
+                    <Card v-for="item of cardData" :data="item" />
                 </div>
             </div>
         </div>
 </template>
 
 <script setup>
+    
     import banner from "../../assets/luca-bravo-O453M2Liufs-unsplash.jpg";
     import person from "../../assets/tyler-nix-PQeoQdkU9jQ-unsplash.jpg";
     import logo from "../../assets/writing.png";
@@ -38,49 +35,48 @@
 
 <script>
 
-import axios from 'axios'
+    import axios from 'axios'
 
-export default {
-    data(){
-        return {
-            title: null,
-            text: null,
-            img: null,
-        }
-    },
-    methods: {
-        getFile(){
-            this.img = this.$refs.files.files[0]
+    import Card from "../components/card.vue";
+
+    export default {
+        data(){
+            return {
+                cardData: [],
+                title: null,
+                text: null,
+                img: null,
+            }
         },
-        
-        createBlog(){
-            axios.post("/api/createBlog", {
-                'title': this.title,
-                'text': this.text,
-            })
-            .then(() => {
-                console.log(this.img);
-                axios.post("/api/createBlogImg", 
-                {
-                    'img': this.img,
-                },
-                {
-                    headers: {
-                        "Content-Type": "multipart/form-data",
-                    }
-                }
-                )
-            })
-            .then((response) => {
-                this.$router.push("/profilePage");
-            })
-            .catch((error) => {
-                console.warn(error);
-            })
+        components: {Card},
+        created() {
+            axios.get('api/getCardProfile')
+            .then(response => this.cardData = response.data) 
+                .catch((error) => {
+                    console.warn(error)
+                })
         },
-        clickHandler(){
-            document.getElementById("createblogContainer").classList.toggle("blog__createblog-container--show");
+        methods: {
+            getFile(){
+                this.img = this.$refs.files.files[0]
+            },
+            createBlog(){
+                const data = new FormData()
+                data.append('title', this.title)
+                data.append('text', this.text)
+                data.append('img', this.img)
+
+                axios.post("/api/createBlog", data)
+                .then((response) => {
+                    this.$router.push("/profilePage");
+                })
+                .catch((error) => {
+                    console.warn(error);
+                })
+            },
+            clickHandler(){
+                document.getElementById("createblogContainer").classList.toggle("blog__createblog-container--show");
+            }
         }
     }
-}
 </script>
