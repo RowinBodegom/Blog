@@ -6,15 +6,19 @@ use Illuminate\Routing\Controller as BaseController;
 use App\Models\BlogPost;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 
 class CardController extends BaseController {
 
     public function getData() {
-        $items = BlogPost::inRandomOrder()->limit(6)->get();
+        $items = BlogPost::All();
         foreach( $items as $item) {
             $user = User::where('id', $item->userID)->select(['id','name'])->first();
             $item->userID = $user;
+            if ($item->img) {
+                $item->img = "../../../storage/app/public/blogImage/$item->img";
+            }
         }
         return $items;
     }

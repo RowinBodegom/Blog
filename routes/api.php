@@ -27,9 +27,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/login', [LoginController::class, 'checkLogin']);
 
 Route::get("/getCards", [CardController::class, 'getData']);
+Route::get("/getCardProfile", [CardController::class, 'getData']);
 Route::get("/getCategory", [CategoryController::class, 'getData']);
 Route::get("/getSmallCard", [CardController::class, 'getSmallCardData']);
+Route::get("/allBlogs", [BlogController::class, 'getAllBlogs']);
 
 Route::post('/register', [RegisterController::class, 'registerPerson']);
 Route::post('/createBlog', [BlogController::class, 'createBlog']);
-Route::post('/createBlogImg', [BlogController::class, 'createBlogImg']);
+Route::post('/deleteBlog/{id}', [BlogController::class, 'deleteBlog']);
