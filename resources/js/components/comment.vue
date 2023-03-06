@@ -6,7 +6,7 @@
         </div>
         <div class="comment__line" v-for="item of commentData">
             <img class="comment__pfp" src="/storage/blogImage/standard_pfp.png">
-            <div class="comment__text">{{item.text }}</div>
+            <div class="comment__text">{{ item.text }}</div>
         </div>
     </div>
 </template>

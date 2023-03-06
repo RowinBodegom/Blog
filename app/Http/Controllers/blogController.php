@@ -14,12 +14,14 @@ class BlogController extends BaseController {
     public function createBlog (Request $request) {
         $file = $request->file('img');
         $name = time() . "_" . $request->img->getClientOriginalName();
-        dd($file->storeAs("public/blogImage", $name));
+        // $file->store("blogImage", 'public');
+        // die();
+        $file->storeAs("public/blogImage", $name, 'local');
         BlogPost::insert([
             "title" => $request->title,
             "text" => $request->text,
             "img" => $name,
-            "userID" => "1",
+            "user_id" => "1",
         ]);
     }
 
