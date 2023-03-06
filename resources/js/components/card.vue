@@ -1,6 +1,3 @@
-
-
-
 <template>
     <div class="card">
         <div class="card__container">
@@ -31,7 +28,7 @@
             </div>
         </div>
     </div>
-</template
+</template>
     <script>
     import Comment from "../components/comment.vue";
 
