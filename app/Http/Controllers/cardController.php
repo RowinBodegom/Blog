@@ -6,6 +6,7 @@ use Illuminate\Routing\Controller as BaseController;
 use App\Models\BlogPost;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 
 class CardController extends BaseController {
