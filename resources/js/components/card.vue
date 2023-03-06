@@ -27,7 +27,6 @@
             <p class="card__text">{{data.text}}</p>
             <button class="card__button card__button--detail">Lees verder</button>
         </div>
-        {{data.id}}
     </div>
 </template>
 
