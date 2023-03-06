@@ -29,7 +29,7 @@
 <script setup>
     
     import banner from "../../assets/luca-bravo-O453M2Liufs-unsplash.jpg";
-    import person from "../../assets/tyler-nix-PQeoQdkU9jQ-unsplash.jpg";
+    import person from "/storage/blogImage/standard_pfp.png";
     import logo from "../../assets/writing.png";
 </script>
 

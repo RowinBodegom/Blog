@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card__container">
             <div class="card__container--left">
-                <img class="card__pfp" src="../../assets/tyler-nix-PQeoQdkU9jQ-unsplash.jpg">
+                <img class="card__pfp" src="/storage/blogImage/standard_pfp.png">
                 <div class="card__username">@{{data.user_id.name}}</div>
             </div>
             <div class="card__container--right">
