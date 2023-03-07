@@ -11,12 +11,7 @@
                 <div class="card__time">{{data.madedate}}</div>
             </div>
         </div>
-        <div :id="'update' + data.id" class="card__update">
-            <label for="titel">titel: </label><input type="text" v-model="title"><br>
-            <label for="text">text: </label><input type="text" v-model="text"><br>
-            <label for="img">foto: </label><input type="file" ref="files" name="img" v-on:change="getFiles()"><br>
-            <button @click="editBlog(data.id)">update</button>
-        </div>
+        <blogUpdate :data="data"/>
         <img v-if="data.img === null" class="card__banner" src="/storage/blogImage/standard.png">
         <img v-else class="card__banner" :src="'/storage/blogImage/'+data.img">
         <div class="card__description">
@@ -31,11 +26,12 @@
 </template>
     <script>
     import Comment from "../components/comment.vue";
+    import blogUpdate from "../components/blog-update.vue";
 
     import axios from 'axios'
     export default {
         name: "card",
-        components: {Comment},
+        components: {Comment,blogUpdate},
         props: {
             data: Object
         },
@@ -52,21 +48,6 @@
             },
             deleteBlog(data){
                 axios.post("/api/deleteBlog/" + data)
-                .then((response) => {
-                    window.location.reload();
-                })
-                .catch((error) => {
-                    console.warn(error);
-                })
-            },
-            editBlog(id){
-                const data = new FormData()
-                data.append('title', this.title)
-                data.append('text', this.text)
-                data.append('img', this.img)
-                data.append('id', id)
-
-                axios.post("/api/editBlog", data)
                 .then((response) => {
                     window.location.reload();
                 })
