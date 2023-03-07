@@ -14,8 +14,6 @@ class BlogController extends BaseController {
     public function createBlog (Request $request) {
         $file = $request->file('img');
         $name = time() . "_" . $request->img->getClientOriginalName();
-        // $file->store("blogImage", 'public');
-        // die();
         $file->storeAs("public/blogImage", $name, 'local');
         BlogPost::insert([
             "title" => $request->title,
@@ -26,17 +24,27 @@ class BlogController extends BaseController {
     }
 
     public function editBlog(Request $request){
-        $oldImg = BlogPost::where('id', $request->id)->first();
-        unlink(storage_path('app/public/blogImage/'.$oldImg->img));
-
         $file = $request->file('img');
-        $name = time() . "_" . $request->img->getClientOriginalName();
-        $file->storeAs("public/blogImage", $name);
-        BlogPost::where('id', $request->id)->update([
-            "title" => $request->title,
-            "text" => $request->text,
-            "img" => $name,
-        ]);
+        $oldImg = BlogPost::where('id', $request->id)->first();
+        if($file){
+            if($oldImg->img){
+                unlink(storage_path('app/public/blogImage/'.$oldImg->img));
+            }
+            $name = time() . "_" . $request->img->getClientOriginalName();
+            $file->storeAs("public/blogImage", $name);
+            BlogPost::where('id', $request->id)->update([
+                "title" => $request->title,
+                "text" => $request->text,
+                "img" => $name,
+            ]);
+        } else {
+            BlogPost::where('id', $request->id)->update([
+                "title" => $request->title,
+                "text" => $request->text,
+            ]);
+        }
+        
+        
     }
 
     public function deleteBlog($id){
