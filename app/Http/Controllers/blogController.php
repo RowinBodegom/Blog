@@ -43,8 +43,6 @@ class BlogController extends BaseController {
                 "text" => $request->text,
             ]);
         }
-        
-        
     }
 
     public function deleteBlog($id){

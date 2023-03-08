@@ -35,7 +35,10 @@
 
                 axios.post("/api/editBlog", data)
                 .then((response) => {
-                    window.location.reload();
+                    this.title = null;
+                    this.text = null;
+                    this.img = null;
+                    this.$parent.reloadData();
                 })
                 .catch((error) => {
                     console.warn(error);

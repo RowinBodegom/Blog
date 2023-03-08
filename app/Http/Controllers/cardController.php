@@ -27,4 +27,11 @@ class CardController extends BaseController {
     public function getSmallCardData() {
         return $this->getData(4);
     }
+
+    public function reloadData($id) {
+        $item = BlogPost::where('id', $id)->first();
+        $user = User::where('id', $item->user_id)->select(['id','name'])->first();
+        $item->user_id = $user;
+        return $item;
+    }
 }
