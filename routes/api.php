@@ -40,3 +40,4 @@ Route::post('/createComment', [CommentController::class, 'create']);
 Route::post('/createBlog', [BlogController::class, 'createBlog']);
 Route::post('/editBlog', [BlogController::class, 'editBlog']);
 Route::post('/deleteBlog/{id}', [BlogController::class, 'deleteBlog']);
+Route::post('/linkCategoryToBlogpost', [BlogController::class, 'linkCategoryToPost']);
