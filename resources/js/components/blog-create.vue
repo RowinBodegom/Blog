@@ -1,22 +1,35 @@
 <template>
-    
-    <div class="blog__createblog">
-        <img class="blog__createblog--picture" :src="logo"/>
-        <input autocomplete="off" type="text" name="text" v-model="text" @click="clickHandler()" placeholder="schrijf een blog">
-        <div class="blog__createblog__container" id="createblogContainer">
-            <label for="title">titel blog:</label><input type="text" name="title" v-model="title">
-            <label for="img">foto blog:</label>
-            <input type="file" ref="files" name="img" v-on:change="getFile()">
-            <select id="select" @change="addCategory()">
-                <option value="" selected hidden>Choose a category</option>
-                <template v-for="item of categoryData">
-                    <option v-if="!selected.includes(item) ">{{ item.name }}</option>
-                </template>
-            </select>
-            <div>
-                <button v-for="item of selected" @click="removeCategory(item.name)">{{ item.name }}</button>
+    <div class="createblog">
+        <div id="createblog__container--1" class="createblog__container">
+            <div class="createblog__container--title">
+                <label class="createblog__lable createblog__lable--title" for="title">Titel:</label>
+                <input class="createblog__input--title" type="text" name="title" v-model="title">
             </div>
-            <button @click="createBlog()">make blog</button>
+        </div>
+        <div class="createblog__container--text">
+            <img class="createblog__picture" :src="logo"/>
+            <textarea class="createblog__input--text" autocomplete="off" type="text" name="text" v-model="text" @click="clickHandler()" placeholder="schrijf een blog"></textarea> 
+        </div>
+        <div id="createblog__container--2" class="createblog__container">
+            <div>
+                <div class="createblog__container--file">
+                <label class="createblog__lable createblog__lable--file" for="img">Foto:</label>
+                <input class="createblog__button createblog__button--file" type="file" ref="files" name="img" v-on:change="getFile()">
+            </div>
+            <div class="createblog__container--select">
+                <select class="createblog__select" id="select" @change="addCategory()">
+                    <option class="createblog__option" value="" selected hidden>Choose a category</option>
+                    <template v-for="item of categoryData">
+                        <option class="createblog__option" v-if="!selected.includes(item) ">{{ item.name }}</option>
+                    </template>
+                </select>
+                <div class="createblog__container--categorybuttons">
+                    <button class="createblog__button createblog__button--category" v-for="item of selected" @click="removeCategory(item.name)">{{ item.name }}</button>
+                </div>
+            </div>
+            </div>
+            
+            <button class="createblog__button createblog__button--submit" @click="createBlog()">make blog</button>
         </div>
     </div>
 </template>
@@ -63,6 +76,11 @@ export default {
             .then((response) => {
                 this.addCategoryToBlogpost(response);
                 this.clickHandler();
+                this.title = null;
+                this.text = null;
+                this.img = null;
+                this.select = null;
+                this.selected = [];
             })
             .catch((error) => {
                 console.warn(error);
@@ -75,7 +93,8 @@ export default {
             })
         },
         clickHandler(){
-            document.getElementById("createblogContainer").classList.toggle("blog__createblog__container--show");
+            document.getElementById("createblog__container--1").classList.toggle("createblog__container--show");
+            document.getElementById("createblog__container--2").classList.toggle("createblog__container--show");  
         },
         addCategory(){
             this.select = document.getElementById("select").value;
@@ -84,7 +103,7 @@ export default {
         },
         removeCategory(name){
             this.selected.splice(this.selected.indexOf(this.selected.find(element => element.name === name)), 1);
-        }
+        },
     }
 }
 </script>
