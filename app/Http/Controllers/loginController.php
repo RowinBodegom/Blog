@@ -9,11 +9,6 @@ use Illuminate\Http\Request;
 
 
 class LoginController extends BaseController {
-    public $user;
-
-    public function __construct(){
-        $this->user = new User;
-    }
 
     public function checkLogin (Request $request) {
         if(strpos( $request , "<") !== false){
@@ -26,9 +21,9 @@ class LoginController extends BaseController {
                     'name' => ['required'],
                     'password' => ['required'],
                 ]);
-                
+
                 if (Auth::attempt($credentials)) {
-                    echo Auth::user()->email;    
+                    return Auth::user();
                 }
                 else {
                     return response()->json([

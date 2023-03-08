@@ -28,7 +28,8 @@
 <script>
 document.body.classList.add("loginBody");
 
-import axios from 'axios'
+import axios from 'axios';
+import { useRouter } from 'vue-router';
 
 export default {
     data(){
@@ -44,6 +45,10 @@ export default {
                 axios.post("/api/login", {
                     'name': this.username,
                     'password': this.password,
+                })
+                .then((response) => {
+                    console.log(response.data.id);
+                    sessionStorage.setItem("id", response.data.id);
                 })
                 .then((response) => {
                     this.$router.push("/home");

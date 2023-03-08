@@ -31,6 +31,7 @@ Route::get("/getCategory", [CategoryController::class, 'getData']);
 Route::get("/getSmallCard", [CardController::class, 'getSmallCardData']);
 Route::get("/getComment/{id}", [CommentController::class, 'getData']);
 Route::get("/allBlogs", [BlogController::class, 'getAllBlogs']);
+Route::get("/test", [LoginController::class, 'test']);
 
 Route::post('/login', [LoginController::class, 'checkLogin']);
 Route::post('/register', [RegisterController::class, 'registerPerson']);
