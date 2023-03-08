@@ -28,6 +28,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get("/getCards", [CardController::class, 'getCardData']);
 Route::get("/getCardProfile", [CardController::class, 'getCardData']);
 Route::get("/getCategory", [CategoryController::class, 'getData']);
+Route::get("/getAllCategory", [CategoryController::class, 'getAll']);
 Route::get("/getSmallCard", [CardController::class, 'getSmallCardData']);
 Route::get("/getComment/{id}", [CommentController::class, 'getData']);
 Route::get("/allBlogs", [BlogController::class, 'getAllBlogs']);

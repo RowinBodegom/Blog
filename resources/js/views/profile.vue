@@ -1,6 +1,6 @@
 <template>
         <img class="banner" :src="banner"/>
-        <div class="profilePage">
+        <div class="profile">
             <div class="user">
                 <img class="user--picture" :src="person"/>
                 <div>

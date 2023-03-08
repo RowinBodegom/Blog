@@ -7,6 +7,9 @@
             <label for="title">titel blog:</label><input type="text" name="title" v-model="title">
             <label for="img">foto blog:</label>
             <input type="file" ref="files" name="img" v-on:change="getFile()">
+            <select>
+                <option v-for="item of categoryData" @click="clickie(item.name)">{{ item.name }}</option>
+            </select>
             <button @click="createBlog()">make blog</button>
         </div>
     </div>
@@ -23,12 +26,20 @@ import axios from 'axios'
 export default {
     data(){
         return {
+            categoryData: [],
             title: null,
             text: null,
             img: null,
         }
     },
-    methods: {
+    created(){
+        axios.get('api/getAllCategory')
+        .then(response => this.categoryData = response.data) 
+        .catch((error) => {
+            console.warn(error)
+        })
+    },
+    methods:{
         getFile(){
             this.img = this.$refs.files.files[0]
         },
@@ -48,6 +59,9 @@ export default {
         },
         clickHandler(){
             document.getElementById("createblogContainer").classList.toggle("blog__createblog__container--show");
+        },
+        clickie(name){
+            console.log(name);
         }
     }
 }

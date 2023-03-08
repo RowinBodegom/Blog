@@ -9,4 +9,8 @@ class CategoryController extends Controller
     public function getData() {
         return Category::inRandomOrder()->limit(5)->get();
     }
+
+    public function getAll() {
+        return Category::get();
+    }
 }

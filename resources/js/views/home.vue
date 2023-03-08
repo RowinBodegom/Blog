@@ -26,7 +26,7 @@
 
     import Card from "../components/card.vue";
     import smallCard from "../components/smallCard.vue";
-    import Category from "../components/home_components/home_category.vue";
+    import Category from "../components/category-buttons.vue";
     import blogcreate from "../components/blog-create.vue";
     
     export default {
