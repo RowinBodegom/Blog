@@ -17,7 +17,7 @@
         <div class="card__description">
             <p class="card__title">{{item.title}}</p>
             <p class="card__text">{{item.text}}</p>
-            <button class="card__button card__button--detail">Lees verder</button> 
+            <button class="card__button card__button--detail" @click="sendToPost(item.id)">Lees verder</button> 
             <div class="comment__container">
                 <Comment :data="item.id"/>
             </div>
@@ -55,6 +55,9 @@
                 .catch((error) => {
                     console.warn(error);
                 })
+            },
+            sendToPost($id){
+                this.$router.push({name:"blogdetail", params: {id: $id}});
             },
             showEditBlog(data){
                 document.getElementById("update" + data).classList.toggle("card__update--show");

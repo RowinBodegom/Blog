@@ -24,6 +24,11 @@ const routes = [
         path: '/profile',
         name: 'profile',
         component: () => import("../views/profile")
+    },
+    {
+        path: '/blogdetail/:id',
+        name: 'blogdetail',
+        component: () => import("../views/blogdetail")
     }
 ]
 const router = createRouter({
