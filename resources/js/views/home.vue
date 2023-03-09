@@ -31,7 +31,7 @@
     
     export default {
         name: "home",
-        components: {Card,Category,Createpost,smallCard},
+        components: {Card,Category,blogcreate,smallCard},
         props: ["user"],
         data(){
             return {
