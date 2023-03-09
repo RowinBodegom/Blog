@@ -13,7 +13,7 @@
         </div>
         
         <div class="home__container home__container--secondary">
-            <Createpost/>
+            <blogcreate/>
             <div class="home__container home__container--tertiary">
                 <Card v-for="item of cardData" :data="item" />
             </div>
@@ -26,8 +26,8 @@
 
     import Card from "../components/card.vue";
     import smallCard from "../components/smallCard.vue";
-    import Category from "../components/home_components/home_category.vue";
-    import Createpost from "../components/home_components/home_createpost.vue";
+    import Category from "../components/category-buttons.vue";
+    import blogcreate from "../components/blog-create.vue";
     
     export default {
         name: "home",

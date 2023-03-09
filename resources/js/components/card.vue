@@ -3,39 +3,35 @@
         <div class="card__container">
             <div class="card__container--left">
                 <img class="card__pfp" src="/storage/blogImage/standard_pfp.png">
-                <div class="card__username">@{{data.user_id.name}}</div>
+                <div class="card__username">@{{item.user_id.name}}</div>
             </div>
             <div class="card__container--right">
-                <img @click="showEditBlog(data.id)" class="card__write" src="../../assets/draw.png">
-                <img @click="deleteBlog(data.id)" class="card__bin" src="../../assets/bin.png">
-                <div class="card__time">{{data.madedate}}</div>
+                <img @click="showEditBlog(item.id)" class="card__write" src="../../assets/draw.png">
+                <img @click="deleteBlog(item.id)" class="card__bin" src="../../assets/bin.png">
+                <div class="card__time">{{item.madedate}}</div>
             </div>
         </div>
-        <div :id="'update' + data.id" class="card__update">
-            <label for="titel">titel: </label><input type="text" v-model="title"><br>
-            <label for="text">text: </label><input type="text" v-model="text"><br>
-            <label for="img">foto: </label><input type="file" ref="files" name="img" v-on:change="getFiles()"><br>
-            <button @click="editBlog(data.id)">update</button>
-        </div>
-        <img v-if="data.img === null" class="card__banner" src="/storage/blogImage/standard.png">
-        <img v-else class="card__banner" :src="'/storage/blogImage/'+data.img">
+        <blogUpdate :data="item"/>
+        <img v-if="item.img === null" class="card__banner" src="/storage/blogImage/standard.png">
+        <img v-else class="card__banner" :src="'/storage/blogImage/'+item.img">
         <div class="card__description">
-            <p class="card__title">{{data.title}}</p>
-            <p class="card__text">{{data.text}}</p>
+            <p class="card__title">{{item.title}}</p>
+            <p class="card__text">{{item.text}}</p>
             <button class="card__button card__button--detail">Lees verder</button> 
             <div class="comment__container">
-                <Comment :data="data"/>
+                <Comment :data="item.id"/>
             </div>
         </div>
     </div>
 </template>
     <script>
     import Comment from "../components/comment.vue";
+    import blogUpdate from "../components/blog-update.vue";
 
     import axios from 'axios'
     export default {
         name: "card",
-        components: {Comment},
+        components: {Comment,blogUpdate},
         props: {
             data: Object
         },
@@ -44,6 +40,7 @@
                 title: null,
                 text: null,
                 img: null,
+                item: this.data,
             }
         },
         methods: {
@@ -59,24 +56,19 @@
                     console.warn(error);
                 })
             },
-            editBlog(id){
-                const data = new FormData()
-                data.append('title', this.title)
-                data.append('text', this.text)
-                data.append('img', this.img)
-                data.append('id', id)
-
-                axios.post("/api/editBlog", data)
+            showEditBlog(data){
+                document.getElementById("update" + data).classList.toggle("card__update--show");
+            },
+            reloadData(){
+                axios.get("/api/reloadBlogData/" + this.item.id)
                 .then((response) => {
-                    window.location.reload();
+                    this.item = response.data
                 })
                 .catch((error) => {
                     console.warn(error);
                 })
             },
-            showEditBlog(data){
-                document.getElementById("update" + data).classList.toggle("card__update--show");
-            }
+
         }
     }
 </script>
