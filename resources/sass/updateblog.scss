@@ -1,0 +1,77 @@
+.card__update{
+    width: 90%;
+    margin: 1vw auto;
+    &__container{
+        
+        &--title{
+            display: grid;
+            grid-template-columns: 10% auto;
+            margin: 0.4vw 0;
+        }
+        &--text{
+            display: grid;
+            grid-template-columns: 10% auto;
+            margin: 0.4vw 0;
+        }
+        &--img{
+            display: grid;
+            grid-template-columns: 10% auto;
+            margin: 0.4vw 0;
+        }
+    }
+    &__label{
+        &--title{
+            font-family: $font-work;
+            color: $darkGray;
+        }
+        &--text{
+            font-family: $font-work;
+            color: $darkGray;
+        }
+        &--img{
+            font-family: $font-work;
+            color: $darkGray;
+        }
+    }
+    &__input{
+        &--title{
+            height: 2vw;
+            border-radius: 1vw;
+            font-family: $font-work;
+            background-color: $darkWhite;
+            color: $lightGray;
+            border: none;
+            padding-left: 1vw;
+            margin-left: 2%;
+        }
+        &--text{
+            border-radius: 1vw;
+            font-family: $font-work;
+            background-color: $darkWhite;
+            color: $lightGray;
+            border: none;
+            padding-left: 1vw;
+            margin-left: 2%;
+        }
+        &--img{
+            font-family: $font-work;
+            color: $lightGray;
+        }
+    }
+    &__button{
+        &--submit{
+            background-color: $darkWhite;
+            font-family: $font-work;
+            margin-top: 0.2rem;
+            border-radius: 1rem;
+            padding: 0.4rem 1.2rem;
+            border: 1px solid $darkWhite;
+            transition-duration: 0.3s;
+            &:hover{
+                color: $lightWhite;
+                background-color: $Orange;
+                border-color: $Orange;
+            }
+        }
+    }
+}

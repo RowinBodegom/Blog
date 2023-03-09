@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->integer('category_id');
             $table->integer('blogpost_id');
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamp('created_at')->nullable();
         });
     }
 
