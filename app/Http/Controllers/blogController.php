@@ -60,4 +60,9 @@ class BlogController extends BaseController {
             $link->save();
         }
     }
+
+    public function getBlogpost($id){
+        dd(BlogPost::where('id', $id)->first());
+        return BlogPost::where('id', $id)->first();
+    }
 }
