@@ -20,6 +20,7 @@
     
     import banner from "../../assets/luca-bravo-O453M2Liufs-unsplash.jpg";
     import person from "/storage/blogImage/standard_pfp.png";
+    import logo from "../../assets/writing.png";
 </script>
 
 <script>
@@ -28,13 +29,13 @@
 
     import Card from "../components/card.vue";
     import blogcreate from "../components/blog-create.vue";
-
     export default {
         data(){
             return {
                 cardData: [],
             }
         },
+        props: ["user"],
         components: {Card,blogcreate},
         created() {
             axios.get('api/getCardProfile')
