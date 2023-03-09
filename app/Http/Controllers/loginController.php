@@ -2,33 +2,44 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Routing\Controller as BaseController;
-use Illuminate\Support\Facades\Auth;
-use App\Models\User;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller as BaseController;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
+
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+
+use App\Models\User;
 
 class LoginController extends BaseController {
-    public $user;
-
-    public function __construct(){
-        $this->user = new User;
-    }
 
     public function checkLogin (Request $request) {
+        
         if(strpos( $request , "<") !== false){
             return response()->json([
                 'status' => 'failed'
             ], 400);
-        } else {
+        }
+
+        else {
             if($request){
                 $credentials = $request->validate([
                     'name' => ['required'],
                     'password' => ['required'],
                 ]);
-                
+
                 if (Auth::attempt($credentials)) {
-                    echo Auth::user()->email;    
+                    $user = Auth::user();
+                    $random_token = Str::random(64);
+                    User::where('id', $user->id)->update([
+                        'token' => $random_token
+                    ]);
+                    return response()->json([
+                        'token' => $random_token,
+                        'userid' => $user->id,
+                    ]);
                 }
                 else {
                     return response()->json([
@@ -37,5 +48,13 @@ class LoginController extends BaseController {
                 }
             }
         }
+    }
+
+    public function getUser(Request $request){
+        return User::where("id", $request->id)->where("token", $request->token)->first();
+    }
+
+    public function test(Request $request){
+        dd(session()->all());
     }
 }
