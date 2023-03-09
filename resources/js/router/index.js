@@ -21,9 +21,9 @@ const routes = [
         component: () => import("../views/register")
     },
     {
-        path: '/profilePage',
-        name: 'profilePage',
-        component: () => import("../views/profilePage")
+        path: '/profile',
+        name: 'profile',
+        component: () => import("../views/profile")
     }
 ]
 const router = createRouter({

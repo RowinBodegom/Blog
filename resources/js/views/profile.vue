@@ -47,6 +47,7 @@
                 img: null,
             }
         },
+        props: ["user"],
         components: {Card},
         created() {
             axios.get('api/getCardProfile')

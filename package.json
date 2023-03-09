@@ -23,6 +23,7 @@
         "vue-template-compiler": "^2.7.10"
     },
     "dependencies": {
-        "vue": "^3.2.37"
+        "vue": "^3.2.37",
+        "vue-sessionstorage": "^1.0.0"
     }
 }

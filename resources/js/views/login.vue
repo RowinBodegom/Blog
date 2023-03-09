@@ -29,7 +29,6 @@
 document.body.classList.add("loginBody");
 
 import axios from 'axios';
-import { useRouter } from 'vue-router';
 
 export default {
     data(){
@@ -47,10 +46,8 @@ export default {
                     'password': this.password,
                 })
                 .then((response) => {
-                    console.log(response.data.id);
-                    sessionStorage.setItem("id", response.data.id);
-                })
-                .then((response) => {
+                    localStorage.setItem("userID", response.data.userid);
+                    localStorage.setItem("token", response.data.token);
                     this.$router.push("/home");
                 })
                 .catch((error) => {

@@ -32,7 +32,7 @@
     export default {
         name: "home",
         components: {Card,Category,Createpost,smallCard},
-
+        props: ["user"],
         data(){
             return {
                 cardData: [],
@@ -42,7 +42,7 @@
         },
         created() {
             axios.get('api/getCards')
-            .then(response => this.cardData = response.data) 
+            .then(response => this.cardData = response.data)
                 .catch((error) => {
                     console.warn(error)
                 })
