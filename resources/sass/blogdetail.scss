@@ -91,9 +91,10 @@
     }
 
     &__reacties{
-        margin: 10vw 0;
         background-color: $lightWhite;
         padding-top: 1vw;
+        margin-top: 8vw;
+        margin-bottom: 10vw;
 
         &--container{
             width: 90%;
@@ -102,7 +103,9 @@
 
         &--title{
             font-family: $chunkyfive-ex;
+            font-size: 1.5vw;
             color: $Orange;
+            margin-bottom: 1vw;
         }
     }
 }

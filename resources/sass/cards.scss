@@ -79,17 +79,29 @@
     }
     &__button{
         margin-bottom: 1rem;
+        font-family: $font-work;
+        border: 1px solid ;
+        border-radius: 1rem;
+        padding: 0.4rem 1.2rem;
+        transition-duration: 0.3s;
         &--detail{
-            font-family: $font-work;
-            background-color: white;
-            border: 1px solid $Orange;
-            border-radius: 1rem;
-            padding: 0.4rem 1.2rem;
             color: $Orange;
-            transition-duration: 0.3s;
+            background-color: white;
+            border-color: $Orange;
             &:hover{
                 color: $Blue;
                 border-color: $Blue;
+            }
+        }
+        &--commentTotal{
+            margin-right: 5%;
+            float: right;
+            color: $Blue;
+            background-color: white;
+            border-color: $Blue;
+            &:hover{
+                color: $Orange;
+                border-color: $Orange;
             }
         }
     }
