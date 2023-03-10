@@ -83,7 +83,8 @@
             reloadData(){
                 axios.get("/api/reloadBlogData/" + this.item.id)
                 .then((response) => {
-                    this.item = response.data
+                    this.item = response.data;
+                    this.hideEditBlog(this.item.id);
                 })
                 .catch((error) => {
                     console.warn(error);

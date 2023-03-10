@@ -77,7 +77,7 @@ export default {
             axios.post("/api/createBlog", data)
             .then((response) => {
                 this.addCategoryToBlogpost(response);
-                this.clickHandler();
+                this.hideCreate();
                 this.title = null;
                 this.text = null;
                 this.img = null;
