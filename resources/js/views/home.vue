@@ -47,7 +47,7 @@
                     console.warn(error)
                 })
 
-            axios.get('api/getCategory')
+            axios.get('/api/getCategory')
             .then(response => this.categorydata = response.data)
                 .catch((error) => {
                     console.warn(error)

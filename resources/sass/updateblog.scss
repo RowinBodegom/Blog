@@ -61,19 +61,17 @@
         }
     }
     &__button{
-        &--submit{
-            background-color: $darkWhite;
-            font-family: $font-work;
-            margin-top: 0.2rem;
-            border-radius: 1rem;
-            padding: 0.4rem 1.2rem;
-            border: 1px solid $darkWhite;
-            transition-duration: 0.3s;
-            &:hover{
-                color: $lightWhite;
-                background-color: $Orange;
-                border-color: $Orange;
-            }
+        background-color: $darkWhite;
+        font-family: $font-work;
+        margin-top: 0.2rem;
+        border-radius: 1rem;
+        padding: 0.4rem 1.2rem;
+        border: 1px solid $darkWhite;
+        transition-duration: 0.3s;
+        &:hover{
+            color: $lightWhite;
+            background-color: $Orange;
+            border-color: $Orange;
         }
     }
 }
