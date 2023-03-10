@@ -33,7 +33,7 @@
                 <div class="blogdetail__reacties">
                     <div class="blogdetail__reacties--container">
                         <div class="blogdetail__reacties--title">reacties</div>
-                        <Comment :data="mainData.id"/>  
+                        <Comment v-if="mainData" :data="[mainData.id, 'unlimited']"/>
                     </div>
                     
                 </div>
@@ -58,7 +58,7 @@ export default {
     data(){
         return {
             blogpost_id : this.$route.params.id,
-            mainData : [],
+            mainData : null, /** this is going to be an array */
             user_id : [],
             categoryData : [],
             smallCardData : [],
@@ -70,7 +70,6 @@ export default {
         .then((response) => {
                 this.mainData = response.data;
                 this.user_id = this.mainData['user_id']['id'];
-                console.log(this.mainData);
             })
         .catch((error) => {
             console.warn(error)

@@ -20,12 +20,21 @@ class CommentController extends BaseController {
         );
     }
 
-    public function getData ($id) {
-        $items = Comment::where('blogpost_id', $id)->limit(3)->get();
+    public function getData ($id, $modifier) {
+        if($modifier === 'limited'){
+            $items = Comment::where('blogpost_id', $id)->limit(3)->get();
+        } else if($modifier === 'unlimited'){
+            $items = Comment::where('blogpost_id', $id)->get();
+        }
         foreach( $items as $item) {
             $user = User::where('id', $item->user_id)->select(['profile_picture','name'])->first();
             $item->user_id = $user;
         }
         return $items;
+    }
+
+    public function getCommentTotal ($id) {
+        $items = Comment::where('blogpost_id', $id)->get();
+        return count($items);
     }
 }
