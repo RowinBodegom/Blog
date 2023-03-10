@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Auth;
 use App\Models\BlogPost;
-use App\Models\category_blogPost;
+use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 use file;
 use Illuminate\Http\Request;
@@ -13,13 +13,17 @@ use Illuminate\Http\Request;
 class BlogController extends BaseController {
 
     public function createBlog (Request $request) {
-        $file = $request->file('img');
-        $name = time() . "_" . $request->img->getClientOriginalName();
-        $file->storeAs("public/blogImage", $name, 'local');
         $blog = new BlogPost;
+        if(!$request->img){
+            $file = $request->file('img');
+            $name = time() . "_" . $request->img->getClientOriginalName();
+            $file->storeAs("public/blogImage", $name, 'local');
+            $blog->img = $name;
+        } else {
+            $blog->img = null;
+        }
         $blog->title = $request->title;
         $blog->text = $request->text;
-        $blog->img = $name;
         $blog->user_id = 1;
         $blog->save();
         return $blog->id;
@@ -51,18 +55,10 @@ class BlogController extends BaseController {
         BlogPost::where('id', $id)->delete($id);
     }
 
-    public function linkCategoryToPost(Request $request){
-        // dd($request->category);
-        foreach($request->category as $category){
-            $link = new category_blogpost;
-            $link->category_id = $category['id'];
-            $link->blogpost_id = $request->blogpost_id['data'];
-            $link->save();
-        }
-    }
-
-    public function getBlogpost($id){
-        dd(BlogPost::where('id', $id)->first());
-        return BlogPost::where('id', $id)->first();
+    public function obtainBlogpostData($id){
+        $item = BlogPost::where('id', $id)->first();
+        $user = User::where('id', $item->user_id)->select(['id','name', 'profile_picture'])->first();
+        $item->user_id = $user;
+        return $item;
     }
 }

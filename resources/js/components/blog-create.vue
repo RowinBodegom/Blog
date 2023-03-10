@@ -8,7 +8,7 @@
         </div>
         <div class="createblog__container--text">
             <img class="createblog__picture" :src="logo"/>
-            <textarea class="createblog__input--text" autocomplete="off" type="text" name="text" v-model="text" @click="clickHandler()" placeholder="schrijf een blog"></textarea> 
+            <textarea class="createblog__input--text" autocomplete="off" type="text" name="text" v-model="text" @click="showCreate()" placeholder="schrijf een blog"></textarea> 
         </div>
         <div id="createblog__container--2" class="createblog__container">
             <div>
@@ -24,12 +24,13 @@
                     </template>
                 </select>
                 <div class="createblog__container--categorybuttons">
-                    <button class="createblog__button createblog__button--category" v-for="item of selected" @click="removeCategory(item.name)">{{ item.name }}</button>
+                    <button class="createblog__button createblog__button--category createblog__hover--orange" v-for="item of selected" @click="removeCategory(item.name)">{{ item.name }}</button>
                 </div>
             </div>
             </div>
             
-            <button class="createblog__button createblog__button--submit" @click="createBlog()">make blog</button>
+            <button class="createblog__button createblog__button--submit createblog__hover--orange" @click="createBlog()">maak blog</button>
+            <button class="createblog__button createblog__button--cancel createblog__hover--orange" @click="hideCreate()">Annuleren</button>
         </div>
     </div>
 </template>
@@ -45,6 +46,7 @@ import axios from 'axios'
 export default {
     data(){
         return {
+            showCreateBlog : false,
             categoryData: [],
             title: null,
             text: null,
@@ -92,9 +94,24 @@ export default {
                 'category' : this.selected,
             })
         },
-        clickHandler(){
-            document.getElementById("createblog__container--1").classList.toggle("createblog__container--show");
-            document.getElementById("createblog__container--2").classList.toggle("createblog__container--show");  
+        showCreate(){
+            if(this.showCreateBlog == false){
+                document.getElementById("createblog__container--1").classList.toggle("createblog__container--show");
+                document.getElementById("createblog__container--2").classList.toggle("createblog__container--show");  
+                this.showCreateBlog = true
+            }
+        },
+        hideCreate(){
+            if(this.showCreateBlog == true){
+                document.getElementById("createblog__container--1").classList.toggle("createblog__container--show");
+                document.getElementById("createblog__container--2").classList.toggle("createblog__container--show");  
+                this.showCreateBlog = false
+                this.title = null;
+                this.text = null;
+                this.img = null;
+                this.select = null;
+                this.selected = [];
+            }
         },
         addCategory(){
             this.select = document.getElementById("select").value;
