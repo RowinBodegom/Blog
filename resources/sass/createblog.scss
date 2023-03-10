@@ -73,27 +73,32 @@
         margin-top: 0.2rem;
         border-radius: 1rem;
         padding: 0.4rem 1.2rem;
+        
+        background-color: $Blue;
+        border: 1px solid $Blue;
+        color: $lightWhite;
+        
 
         &--category{
-            background-color: $Blue;
-            border: 1px solid $Blue;
-            color: $lightWhite;
             margin-left: 0.5rem;
+        }
+        &--file{
+            background-color: $lightWhite;
+            margin-left: 1vw;
+            color: $Blue;
+        }
+        &--cancel{
+            margin-left: 0.6vw;
+        }
+    }
+    &__hover{
+        &--orange{
             transition-duration: 0.3s;
             &:hover{
                 background-color: $Orange;
                 border-color: $Orange;
             }
         }
-        &--submit{
-            background-color: $Blue;
-            border: 1px solid $Blue;
-            color: $lightWhite;
-            transition-duration: 0.3s;
-            &:hover{
-                background-color: $Orange;
-                border-color: $Orange;
-            }
-        }
+        
     }
 }
