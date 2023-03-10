@@ -58,6 +58,21 @@ class BlogPost extends Seeder
                 'text' => 'HELP ME I KEEP GETTING SAND IN MY EYES! IT HURTS SO MUCH! oh thank for the glasses. still sandy tho',
                 'user_id' => 2,  
             ),
+            array(
+                'title' => 'Waarom zweden niet echt is', 
+                'text' => 'ben je ooit in zweden geweest? JA DAT DACHT IK AL ZWEDEN IS NIET ECHT!',
+                'user_id' => 4,  
+            ),
+            array(
+                'title' => 'boeken zijn cool!', 
+                'text' => 'wie hou ik voor de gek boeken zijn alleen cool wanneer je ze gooit naar blikjes als een soort carnivals spelletje',
+                'user_id' => 4,  
+            ),
+            array(
+                'title' => 'voedsel gevecht', 
+                'text' => 'ben bang voor kroketen de laatste keer dat we een voedsel gevecht hadden kreeg ik een hete kroket in mijn gezicht. ik had een rood gezicht voor de hele zomer. WAAROM WAS DIE KROKET UBERHAUBT ZO HEET!',
+                'user_id' => 4,  
+            ),
         );
         foreach ($posts as $post){
             DB::table('blogposts')->insert([
