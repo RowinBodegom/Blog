@@ -1,0 +1,106 @@
+.createblog{
+    display: grid;
+    background-color: $lightWhite;
+    padding: 1vw 2vw;
+
+    &__container{
+        display: none;
+        &--show{
+            display: inline-block;
+        }
+        &--text{
+            margin: 1vw 0;
+            display: grid;
+            grid-template-columns: 3vw auto;
+        }
+        &--file{
+            display: block;
+        }
+        &--title{
+            display: grid;
+            grid-template-columns: 3vw auto;
+        }
+        &--select{
+            display: grid;
+            grid-template-columns: 17% auto;
+            grid-column-gap: 2%;
+            margin: 0.3vw 0;
+        }
+    }
+
+    &__picture{
+        width: 3vw;
+        text-align: center;
+    }
+
+    &__lable{
+        font-family: $chunkyfive-ex;
+        color: $Blue;
+        font-size: 1.3vw;
+    }
+
+    &__input{
+        &--title{
+            height: 2vw;
+            border-radius: 1vw;
+            font-family: $font-work;
+            background-color: $darkWhite;
+            color: $lightGray;
+            border: none;
+            padding-left: 1vw;
+            margin-left: 2%;
+        }
+        &--text{
+            min-height: 3vw;
+            border-radius: 1vw;
+            font-family: $font-work;
+            background-color: $darkWhite;
+            color: $lightGray;
+            border: none;
+            padding-left: 1vw;
+            margin-left: 2%;
+            resize: vertical;
+        }
+    }
+    &__select{
+        background-color: $darkWhite;
+        border: 1px solid $darkWhite;
+        font-family: $font-work;
+        border-radius: 1rem;
+        padding: 0.4rem 1.2rem;
+        margin-top: 0.2rem;
+    }
+    &__button{
+        font-family: $font-work;
+        margin-top: 0.2rem;
+        border-radius: 1rem;
+        padding: 0.4rem 1.2rem;
+        
+        background-color: $Blue;
+        border: 1px solid $Blue;
+        color: $lightWhite;
+        
+
+        &--category{
+            margin-left: 0.5rem;
+        }
+        &--file{
+            background-color: $lightWhite;
+            margin-left: 1vw;
+            color: $Blue;
+        }
+        &--cancel{
+            margin-left: 0.6vw;
+        }
+    }
+    &__hover{
+        &--orange{
+            transition-duration: 0.3s;
+            &:hover{
+                background-color: $Orange;
+                border-color: $Orange;
+            }
+        }
+        
+    }
+}

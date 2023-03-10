@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-    import person from "../../assets/tyler-nix-PQeoQdkU9jQ-unsplash.jpg";
+    import person from "/storage/blogImage/standard_pfp.png";
 </script>
 
 <script>

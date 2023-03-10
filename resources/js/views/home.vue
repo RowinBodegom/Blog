@@ -13,9 +13,9 @@
         </div>
         
         <div class="home__container home__container--secondary">
-            <Createpost/>
+            <blogcreate/>
             <div class="home__container home__container--tertiary">
-                <Card v-for="item of cardData" :data="item" />
+                <Card v-for="item of cardData" :data="item" :user="user" />
             </div>
         </div>
     </div>
@@ -26,13 +26,13 @@
 
     import Card from "../components/card.vue";
     import smallCard from "../components/smallCard.vue";
-    import Category from "../components/home_components/home_category.vue";
-    import Createpost from "../components/home_components/home_createpost.vue";
+    import Category from "../components/category-buttons.vue";
+    import blogcreate from "../components/blog-create.vue";
     
     export default {
         name: "home",
-        components: {Card,Category,Createpost,smallCard},
-
+        components: {Card,Category,blogcreate,smallCard},
+        props: ["user"],
         data(){
             return {
                 cardData: [],
@@ -41,18 +41,18 @@
             }
         },
         created() {
-            axios.get('api/getCards')
-            .then(response => this.cardData = response.data) 
+            axios.get('api/getCards/' + this.user.id)
+            .then(response => this.cardData = response.data)
                 .catch((error) => {
                     console.warn(error)
                 })
 
-            axios.get('api/getCategory')
+            axios.get('/api/getCategory')
             .then(response => this.categorydata = response.data)
                 .catch((error) => {
                     console.warn(error)
                 })
-            axios.get('api/getSmallCard')
+            axios.get('api/getSmallCard/' + this.user.id)
             .then(response => this.smallCardData = response.data)
                 .catch((error) => {
                     console.warn(error)

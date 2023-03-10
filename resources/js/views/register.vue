@@ -29,7 +29,7 @@
 <script>
     document.body.classList.add("loginBody");
 
-    import axios from 'axios'
+    import axios from 'axios';
 
 export default {
     data(){

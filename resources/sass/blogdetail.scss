@@ -1,0 +1,108 @@
+.blogdetail{
+    background-color: $darkWhite;
+    &__banner{
+        
+        &--img{
+            object-fit: cover;
+            width: 100%;
+            height: 22vw;
+        }
+    }
+
+    &__container{
+        display: grid;
+        &--main{
+            width: 90%;
+            margin: 0 auto;
+            margin-left: 5%;
+            grid-template-columns: 24% auto;
+            grid-column-gap: 4%;
+        }      
+        &--top{
+            margin-top: 4vw;
+            margin-bottom: 2vw;
+            grid-template-columns: auto 5vw;
+        }  
+        &--smallcard{
+            background-color: $lightWhite;
+            padding: 1vw 2vw;
+        }
+    }
+
+    &__cardtitle{
+        color: $Orange;
+        font-family: $chunkyfive-ex;
+        margin-top: 2vw;
+        margin-bottom: 2vw;
+    }
+
+    &__test{
+       margin-top: -40%;
+    }
+
+    &__pfp{
+        height: 18vw;
+        width: 18vw;
+        border-radius: 50%;
+        border: solid $darkWhite 1rem;
+        background-color: $darkWhite;
+        object-fit: cover;
+    }
+
+    &__button{
+        background-color: none;
+        border-width: 0.1vw;
+        border-radius: 6vw;
+        width: fit-content;
+        padding: 0.5vw 1.5vw;
+
+        &--category{
+            border-color: $Blue;
+            color: $Blue;
+            font-family: $font-work;
+            font-weight: 500;
+            font-size: 1vw;
+            margin-right: 0.8vw;
+        }
+    }
+
+    &__icon{
+        width: 1.5vw;
+        height: 1.5vw;
+        opacity: 0.4;
+        &--update{
+            margin-right: 0.7vw;
+        }
+    }
+
+    &__text{
+        font-family:$font-work;
+        color: $lightGray;
+
+        &--title{
+            font-family: $chunkyfive-ex;
+            font-size: 2.5vw;
+            color: $Blue;
+        }
+
+        &--opening{
+            font-size: 1.5vw;
+        }
+    }
+
+    &__reacties{
+        margin: 10vw 0;
+        background-color: $lightWhite;
+        padding-top: 1vw;
+
+        &--container{
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        &--title{
+            font-family: $chunkyfive-ex;
+            color: $Orange;
+        }
+    }
+}
