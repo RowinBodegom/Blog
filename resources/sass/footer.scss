@@ -1,0 +1,17 @@
+.footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2vw;
+    font-family: "Work Sans", sans-serif;
+
+    &__blog{
+        font-weight: bold;
+        color: $Orange;
+        font-size: 2rem;
+    }
+
+    &__contact{
+        color: $Blue;
+    }
+}
