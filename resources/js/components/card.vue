@@ -11,7 +11,10 @@
                 <div class="card__time">{{item.madedate}}</div>
             </div>
         </div>
-        <blogUpdate :data="item"/>
+        <div :id="'update' + item.id" class="card__update">
+            <blogUpdate :data="item"/>
+            <button class="card__update__button" @click="hideEditBlog(item.id)">Annuleren</button>
+        </div>
         <img v-if="item.img === null" class="card__banner" src="/storage/blogImage/standard.png">
         <img v-else class="card__banner" :src="'/storage/blogImage/'+item.img">
         <div class="card__description">
@@ -37,6 +40,7 @@
         },
         data(){
             return {
+                showUpdateBlog: false,
                 title: null,
                 text: null,
                 img: null,
@@ -60,7 +64,16 @@
                 this.$router.push({name:"blogdetail", params: {id: $id}});
             },
             showEditBlog(data){
-                document.getElementById("update" + data).classList.toggle("card__update--show");
+                if(this.showUpdateBlog == false){
+                    document.getElementById("update" + data).classList.toggle("card__update--show");
+                    this.showUpdateBlog = true
+                }
+            },
+            hideEditBlog(data){
+                if(this.showUpdateBlog == true){
+                    document.getElementById("update" + data).classList.toggle("card__update--show");
+                    this.showUpdateBlog = false
+                }
             },
             reloadData(){
                 axios.get("/api/reloadBlogData/" + this.item.id)

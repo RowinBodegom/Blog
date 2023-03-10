@@ -1,21 +1,19 @@
 <template>
-        <div :id="'update' + data.id" class="card__update">
-            <div class="card__update__container">
-                <div class="card__update__container--title">
-                    <label class="card__update__label--title" for="titel">titel: </label>
-                    <input class="card__update__input--title" type="text" v-model="data.title">
-                </div>
-                <div class="card__update__container--text">
-                    <label class="card__update__label--text" for="text">text: </label>
-                    <textarea class="card__update__input--text" type="text" v-model="data.text"></textarea>
-                </div>
-                <div class="card__update__container--img">
-                    <label class="card__update__label--img" for="img">foto: </label>
-                    <input class="card__update__input--img" type="file" ref="files" name="img" v-on:change="getFiles()"> 
-                </div>
+        <div class="card__update__container">
+            <div class="card__update__container--title">
+                <label class="card__update__label--title" for="titel">titel: </label>
+                <input class="card__update__input--title" type="text" v-model="data.title">
             </div>
-            <button class="card__update__button--submit"  @click="editBlog(data.id)">update</button>
+            <div class="card__update__container--text">
+                <label class="card__update__label--text" for="text">text: </label>
+                <textarea class="card__update__input--text" type="text" v-model="data.text"></textarea>
+            </div>
+            <div class="card__update__container--img">
+                <label class="card__update__label--img" for="img">foto: </label>
+                <input class="card__update__input--img" type="file" ref="files" name="img" v-on:change="getFiles()"> 
+            </div>
         </div>
+        <button class="card__update__button"  @click="editBlog(data.id)">Aanpassen</button>
 </template>
 
 <script>

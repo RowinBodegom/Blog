@@ -41,18 +41,18 @@
             }
         },
         created() {
-            axios.get('api/getCards')
+            axios.get('/api/getCards')
             .then(response => this.cardData = response.data)
                 .catch((error) => {
                     console.warn(error)
                 })
 
-            axios.get('api/getCategory')
+            axios.get('/api/getCategory')
             .then(response => this.categorydata = response.data)
                 .catch((error) => {
                     console.warn(error)
                 })
-            axios.get('api/getSmallCard')
+            axios.get('/api/getSmallCard')
             .then(response => this.smallCardData = response.data)
                 .catch((error) => {
                     console.warn(error)

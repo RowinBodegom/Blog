@@ -38,7 +38,7 @@
         props: ["user"],
         components: {Card,blogcreate},
         created() {
-            axios.get('api/getCardProfile')
+            axios.get('/api/getCardProfile')
             .then(response => this.cardData = response.data) 
                 .catch((error) => {
                     console.warn(error)
