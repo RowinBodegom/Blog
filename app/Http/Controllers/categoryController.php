@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 use App\Models\Category;
-
+use Illuminate\Routing\Controller as BaseController;
 use App\Models\category_blogPost;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class CategoryController extends BaseController
 {
     public function getData() {
         return Category::inRandomOrder()->limit(5)->get();
@@ -37,6 +37,5 @@ class CategoryController extends Controller
         } else {
             return $sendingItems = ["Geen Categorieën"];
         }
-        
     }
 }
