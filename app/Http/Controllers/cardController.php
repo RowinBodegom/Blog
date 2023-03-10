@@ -9,23 +9,32 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 
-class CardController extends BaseController {
+class CardController extends BaseController{
 
-    public function getData($amount) {
-        $items = BlogPost::inRandomOrder()->limit($amount)->get();
+    public function getData($amount, $id){
+        $items = BlogPost::where('user_id', "!=", $id)->inRandomOrder()->limit($amount)->get();
         foreach( $items as $item) {
             $user = User::where('id', $item->user_id)->select(['id','name'])->first();
             $item->user_id = $user;
         }
         return $items;
     }
-    
-    public function getCardData(){
-        return $this->getData(6);
+
+    public function getCardData($id){
+        return $this->getData(6, $id);
     }
 
-    public function getSmallCardData() {
-        return $this->getData(4);
+    public function getSmallCardData($id){
+        return $this->getData(4, $id);
+    }
+
+    public function getProfileCards($id){
+        $items = BlogPost::where('user_id', $id)->inRandomOrder()->limit(6)->get();
+        foreach( $items as $item) {
+            $user = User::where('id', $item->user_id)->select(['id','name'])->first();
+            $item->user_id = $user;
+        }
+        return $items;
     }
 
     public function getSmallCardDataBlogdetail($id) {

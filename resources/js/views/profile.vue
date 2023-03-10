@@ -4,13 +4,13 @@
             <div class="user">
                 <img class="user--picture" :src="person"/>
                 <div>
-                    <h1>gvfdkljgfdbjkf</h1>
+                    <h1>{{ this.user.id }}</h1>
                 </div>
             </div>
             <div class="blog">
                 <blogcreate/>
                 <div class="blog__showblog">
-                    <Card v-for="item of cardData" :data="item" />
+                    <Card v-for="item of cardData" :data="item" :user="user"/>
                 </div>
            </div>
         </div>
@@ -38,7 +38,7 @@
         props: ["user"],
         components: {Card,blogcreate},
         created() {
-            axios.get('/api/getCardProfile')
+            axios.get('api/getProfileCards/' + this.user.id)
             .then(response => this.cardData = response.data) 
                 .catch((error) => {
                     console.warn(error)

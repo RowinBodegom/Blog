@@ -22,7 +22,7 @@
     export default {
         name: "blog-update",
         props: {
-            data: Object
+            data: Object,
         },
         data(){
             return {

@@ -45,6 +45,7 @@
             margin-left: 2%;
         }
         &--text{
+            min-height: 3vw;
             border-radius: 1vw;
             font-family: $font-work;
             background-color: $darkWhite;
@@ -52,6 +53,7 @@
             border: none;
             padding-left: 1vw;
             margin-left: 2%;
+            resize: vertical;
         }
         &--img{
             font-family: $font-work;
