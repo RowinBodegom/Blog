@@ -42,6 +42,12 @@ class UserSeeder extends Seeder
                 'password' => 'Dennis2003@',
                 'profile_picture' => 'img',
             ),
+            array(
+                'name' => 'Tyler', 
+                'email' => 'Tyler@Tylermail.nl', 
+                'password' => 'Tyler2003@',
+                'profile_picture' => 'img',
+            ),
         );
         foreach ($users as $user){
             DB::table('users')->insert([
