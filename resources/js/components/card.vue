@@ -5,7 +5,7 @@
                 <img class="card__pfp" src="/storage/blogImage/standard_pfp.png">
                 <div class="card__username">@{{item.user_id.name}}</div>
             </div>
-            <div class="card__container--right">
+            <div v-if="this.user.id === item.user_id.id" class="card__container--right">
                 <img @click="showEditBlog(item.id)" class="card__write" src="../../assets/draw.png">
                 <img @click="deleteBlog(item.id)" class="card__bin" src="../../assets/bin.png">
                 <div class="card__time">{{item.madedate}}</div>
@@ -17,7 +17,7 @@
         <div class="card__description">
             <p class="card__title">{{item.title}}</p>
             <p class="card__text">{{item.text}}</p>
-            <button class="card__button card__button--detail" @click="sendToPost(item.id)">Lees verder</button> 
+            <button class="card__button card__button--detail" @click="sendToPost(item.id)">Lees verder</button>
             <div class="comment__container">
                 <Comment :data="item.id"/>
             </div>
@@ -25,6 +25,7 @@
     </div>
 </template>
     <script>
+
     import Comment from "../components/comment.vue";
     import blogUpdate from "../components/blog-update.vue";
 
@@ -33,7 +34,11 @@
         name: "card",
         components: {Comment,blogUpdate},
         props: {
-            data: Object
+            data: Object,
+            user: {
+                default: null,
+                type: Object,
+            },
         },
         data(){
             return {

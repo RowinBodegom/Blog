@@ -15,7 +15,7 @@
         <div class="home__container home__container--secondary">
             <blogcreate/>
             <div class="home__container home__container--tertiary">
-                <Card v-for="item of cardData" :data="item" />
+                <Card v-for="item of cardData" :data="item" :user="user" />
             </div>
         </div>
     </div>
@@ -41,7 +41,7 @@
             }
         },
         created() {
-            axios.get('api/getCards')
+            axios.get('api/getCards/' + this.user.id)
             .then(response => this.cardData = response.data)
                 .catch((error) => {
                     console.warn(error)
@@ -52,7 +52,7 @@
                 .catch((error) => {
                     console.warn(error)
                 })
-            axios.get('api/getSmallCard')
+            axios.get('api/getSmallCard/' + this.user.id)
             .then(response => this.smallCardData = response.data)
                 .catch((error) => {
                     console.warn(error)

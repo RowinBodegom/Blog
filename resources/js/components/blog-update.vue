@@ -1,6 +1,7 @@
 <template>
         <div :id="'update' + data.id" class="card__update">
             <div class="card__update__container">
+                
                 <div class="card__update__container--title">
                     <label class="card__update__label--title" for="titel">titel: </label>
                     <input class="card__update__input--title" type="text" v-model="data.title">
@@ -24,7 +25,7 @@
     export default {
         name: "blog-update",
         props: {
-            data: Object
+            data: Object,
         },
         data(){
             return {
