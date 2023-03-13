@@ -21,7 +21,7 @@ const routes = [
         component: () => import("../views/register")
     },
     {
-        path: '/profile',
+        path: '/profile/:id',
         name: 'profile',
         component: () => import("../views/profile")
     },

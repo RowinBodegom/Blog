@@ -32,7 +32,9 @@
     export default {
         name: "home",
         components: {Card,Category,blogcreate,smallCard},
-        props: ["user"],
+         props: {
+            user: Object,
+        },
         data(){
             return {
                 cardData: [],

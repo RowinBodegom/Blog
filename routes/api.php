@@ -38,6 +38,7 @@ Route::get("/obtainBlogpostData/{id}", [BlogController::class, 'obtainBlogpostDa
 Route::get("/getLinkedCategoryBlogpost/{id}", [CategoryController::class, 'getLinkedCategoryBlogpost']);
 Route::get("/getSmallCardDataBlogdetail/{id}", [CardController::class, 'getSmallCardDataBlogdetail']);
 Route::get("/reloadBlogData/{id}", [CardController::class, 'reloadData']);
+Route::get("/getUserData/{id}", [LoginController::class, 'getUserData']);
 
 Route::post('/login', [LoginController::class, 'checkLogin']);
 Route::post('/getUser', [LoginController::class, 'getUser']);

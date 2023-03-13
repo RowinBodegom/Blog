@@ -3,7 +3,7 @@
         <div class="card__container">
             <div class="card__container--left">
                 <img class="card__pfp" src="/storage/blogImage/standard_pfp.png">
-                <div class="card__username">@{{item.user_id.name}}</div>
+                <router-link :to='"/profile/"+ item.user_id.id' class="card__username">@{{item.user_id.name}}</router-link>
             </div>
             <div v-if="this.user.id === item.user_id.id" class="card__container--right">
                 <img @click="showEditBlog(item.id)" class="card__write" src="../../assets/draw.png">
@@ -42,7 +42,7 @@
         props: {
             data: Object,
             user: {
-                default: null,
+                default: {},
                 type: Object,
             },
         },
@@ -92,6 +92,9 @@
                     document.getElementById("update" + data).classList.toggle("card__update--show");
                     this.showUpdateBlog = false
                 }
+            },
+            goToProfile($id){
+                this.$router.get({name:"profile", params: {id: $id}});
             },
             reloadData(){
                 axios.get("/api/reloadBlogData/" + this.item.id)

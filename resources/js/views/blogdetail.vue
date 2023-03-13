@@ -8,7 +8,7 @@
             <div class="blogdetail__menu--left">
                 <div class="blogdetail__test">
                 <div class="blogdetail__container--img" v-if="mainData.length != 0">
-                        <img class="blogdetail__pfp" v-if="mainData.user_id.profile_picture != 'img'" :src="'/storage/blogImage/'+mainData.user_id.profile_picture">
+                        <img class="blogdetail__pfp" v-if="mainData.user_id.profile_picture != null" :src="'/storage/blogImage/'+mainData.user_id.profile_picture">
                         <img class="blogdetail__pfp" v-else src="/storage/blogImage/standard_pfp.png">
                     </div>
                     <div class="blogdetail__container--smallcard">
