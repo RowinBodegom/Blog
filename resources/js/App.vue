@@ -16,18 +16,20 @@ export default {
     name: "app",
     data(){
         return {
-            user: [],
+            user: {},
         }
     },
     created(){
         let userID = localStorage.getItem("userID");
         let token = localStorage.getItem("token");
         if(userID !== null && token !== null){
-            axios.post('api/getUser', {
+            axios.post('/api/getUser', {
                 'id': userID,
                 'token': token,
             })
-            .then(response => this.user = response.data)
+            .then(response => {
+                this.user = response.data;
+            })
             .catch((error) => {
                 console.warn(error)
             })

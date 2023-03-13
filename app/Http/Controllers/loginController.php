@@ -51,7 +51,11 @@ class LoginController extends BaseController {
     }
 
     public function getUser(Request $request){
-        return User::select('id', 'name', 'email', 'profile_picture')->where("id", $request->id)->where("token", $request->token)->first();
+        return User::select('id', 'name', 'email', 'profile_picture','description', 'username')->where("id", $request->id)->where("token", $request->token)->first();
+    }
+
+    public function getUserData(Request $request){
+        return User::select('name','profile_picture','profile_banner','description', 'username')->where("id", $request->id)->first();
     }
 
     public function test(Request $request){

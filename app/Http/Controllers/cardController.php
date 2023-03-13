@@ -29,7 +29,7 @@ class CardController extends BaseController{
     }
 
     public function getProfileCards($id){
-        $items = BlogPost::where('user_id', $id)->inRandomOrder()->limit(6)->get();
+        $items = BlogPost::where('user_id', $id)->get();
         foreach( $items as $item) {
             $user = User::where('id', $item->user_id)->select(['id','name'])->first();
             $item->user_id = $user;
