@@ -48,6 +48,7 @@ export default {
                 .then((response) => {
                     localStorage.setItem("userID", response.data.userid);
                     localStorage.setItem("token", response.data.token);
+                    document.body.classList.remove("loginBody");
                     this.$router.push("/home");
                 })
                 .catch((error) => {

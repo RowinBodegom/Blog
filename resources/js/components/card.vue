@@ -39,7 +39,7 @@
         props: {
             data: Object,
             user: {
-                default: null,
+                default: {},
                 type: Object,
             },
         },

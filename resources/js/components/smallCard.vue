@@ -15,7 +15,6 @@
 
 <script>
 export default {
-    
     name: "smallCard",
     props: {
         data: Object

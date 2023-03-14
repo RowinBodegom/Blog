@@ -28,4 +28,8 @@ class CommentController extends BaseController {
         }
         return $items;
     }
+
+    public function deleteComment(Request $request){
+        Comment::where('id', $request->comment_id)->delete($request->comment_id);
+    }
 }
