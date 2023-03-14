@@ -30,7 +30,8 @@ Route::get("/getProfileCards/{id}", [CardController::class, 'getProfileCards']);
 Route::get("/getCategory", [CategoryController::class, 'getData']);
 Route::get("/getAllCategory", [CategoryController::class, 'getAll']);
 Route::get("/getSmallCard/{id}", [CardController::class, 'getSmallCardData']);
-Route::get("/getComment/{id}", [CommentController::class, 'getData']);
+Route::get("/getComment/{id}/{modifier}", [CommentController::class, 'getData']);
+Route::get("/getCommentTotal/{id}", [CommentController::class, 'getCommentTotal']);
 Route::get("/allBlogs", [BlogController::class, 'getAllBlogs']);
 Route::get("/test", [LoginController::class, 'test']);
 Route::get("/obtainBlogpostData/{id}", [BlogController::class, 'obtainBlogpostData']);
@@ -38,9 +39,8 @@ Route::get("/getLinkedCategoryBlogpost/{id}", [CategoryController::class, 'getLi
 Route::get("/getSmallCardDataBlogdetail/{id}", [CardController::class, 'getSmallCardDataBlogdetail']);
 Route::get("/reloadBlogData/{id}", [CardController::class, 'reloadData']);
 Route::get("/logout/{id}", [LoginController::class, 'logout']);
+Route::get("/getUserData/{id}", [LoginController::class, 'getUserData']);
 
-// Route::post('/login', [LoginController::class, 'checkLogin']);
-// Route::post('/getUser', [LoginController::class, 'getUser']);
 Route::post('/register', [RegisterController::class, 'registerPerson']);
 Route::post('/createComment', [CommentController::class, 'create']);
 Route::post('/createBlog', [BlogController::class, 'createBlog']);

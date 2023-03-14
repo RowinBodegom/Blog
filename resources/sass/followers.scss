@@ -1,0 +1,22 @@
+.follower{
+    &__container{
+        padding-top: 2vw;
+        &--button{
+            padding-top: 1vw; 
+        }
+    }
+    &__button{
+        background-color: $Blue;
+        font-family: $font-work;
+        font-weight: 600;
+        font-size: 1vw;
+        color: $lightWhite;
+        padding: 0.5vw 1.5vw;
+        border: none;
+        border-radius: 4vw;
+        transition-duration: 0.3s;
+        &:hover{
+            background-color: $Orange;
+        }
+    }
+}

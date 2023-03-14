@@ -3,7 +3,7 @@
         <div class="card__container">
             <div class="card__container--left">
                 <img class="card__pfp" src="/storage/blogImage/standard_pfp.png">
-                <div class="card__username">@{{item.user_id.name}}</div>
+                <router-link :to='"/profile/"+ item.user_id.id' class="card__username">@{{item.user_id.name}}</router-link>
             </div>
             <div v-if="this.user.id === item.user_id.id" class="card__container--right">
                 <img @click="showEditBlog(item.id)" class="card__write" src="../../assets/draw.png">
@@ -20,9 +20,12 @@
         <div class="card__description">
             <p class="card__title">{{item.title}}</p>
             <p class="card__text">{{item.text}}</p>
-            <button class="card__button card__button--detail" @click="sendToPost(item.id)">Lees verder</button>
+            <div class="card__container--button">
+                <button class="card__button card__button--detail" @click="sendToPost(item.id)">Lees verder</button>
+                <button v-if="totalComments != 0" class="card__button card__button--commentTotal">{{ totalComments }} reacties</button>
+            </div>
             <div class="comment__container">
-                <Comment :data="item.id"/>
+                <Comment :data="[item.id, 'limited']"/>
             </div>
         </div>
     </div>
@@ -49,8 +52,18 @@
                 title: null,
                 text: null,
                 img: null,
+                totalComments: null,
                 item: this.data,
             }
+        },
+        created(){
+            axios.get("/api/getCommentTotal/" + this.item.id)
+                .then((response) => {
+                    this.totalComments = response.data;
+                })
+                .catch((error) => {
+                    console.warn(error);
+                })
         },
         methods: {
             getFiles(){
@@ -79,6 +92,9 @@
                     document.getElementById("update" + data).classList.toggle("card__update--show");
                     this.showUpdateBlog = false
                 }
+            },
+            goToProfile($id){
+                this.$router.get({name:"profile", params: {id: $id}});
             },
             reloadData(){
                 axios.get("/api/reloadBlogData/" + this.item.id)

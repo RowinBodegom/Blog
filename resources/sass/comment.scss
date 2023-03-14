@@ -35,4 +35,24 @@
         font-family: $font-work;
         color: $lightGray;
     }
+
+    &__end{
+        padding-bottom: 1vw;
+    }
+
+    &__button{
+        &--more{
+            font-family: $font-work;
+            background-color: white;
+            border: 1px solid $Orange;
+            border-radius: 1rem;
+            padding: 0.4rem 1.2rem;
+            color: $Orange;
+            transition-duration: 0.3s;
+            &:hover{
+                color: $Blue;
+                border-color: $Blue;
+            }
+        }
+    }
 }

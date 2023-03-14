@@ -16,7 +16,7 @@ export default {
     name: "app",
     data(){
         return {
-            user: [],
+            user: {},
         }
     },
     created(){
@@ -27,7 +27,9 @@ export default {
                 'id': userID,
                 'token': token,
             })
-            .then(response => this.user = response.data)
+            .then(response => {
+                this.user = response.data;
+            })
             .catch((error) => {
                 this.$router.push("/");
             })
