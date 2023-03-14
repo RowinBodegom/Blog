@@ -38,13 +38,18 @@ Route::get("/obtainBlogpostData/{id}", [BlogController::class, 'obtainBlogpostDa
 Route::get("/getLinkedCategoryBlogpost/{id}", [CategoryController::class, 'getLinkedCategoryBlogpost']);
 Route::get("/getSmallCardDataBlogdetail/{id}", [CardController::class, 'getSmallCardDataBlogdetail']);
 Route::get("/reloadBlogData/{id}", [CardController::class, 'reloadData']);
+Route::get("/logout/{id}", [LoginController::class, 'logout']);
 Route::get("/getUserData/{id}", [LoginController::class, 'getUserData']);
 
-Route::post('/login', [LoginController::class, 'checkLogin']);
-Route::post('/getUser', [LoginController::class, 'getUser']);
 Route::post('/register', [RegisterController::class, 'registerPerson']);
 Route::post('/createComment', [CommentController::class, 'create']);
 Route::post('/createBlog', [BlogController::class, 'createBlog']);
 Route::post('/editBlog', [BlogController::class, 'editBlog']);
 Route::post('/deleteBlog/{id}', [BlogController::class, 'deleteBlog']);
+Route::post('/deleteComment', [CommentController::class, 'deleteComment']);
 Route::post('/linkCategoryToBlogpost', [CategoryController::class, 'linkCategoryToPost']);
+
+Route::controller(LoginController::class)->group(function () {
+    Route::post('/login', 'checkLogin');
+    Route::post('/getUser', 'getUser');
+});

@@ -19,8 +19,4 @@ class Comment extends Model
         'user_id',
         'blogpost_id',
     ];
-
-    protected $hidden = [
-        'id'
-    ];
 }

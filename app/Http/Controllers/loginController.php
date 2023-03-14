@@ -61,4 +61,8 @@ class LoginController extends BaseController {
     public function test(Request $request){
         dd(session()->all());
     }
+
+    public function logout($id){
+        User::where("id", $id)->update(["token" => null]);
+    }
 }
