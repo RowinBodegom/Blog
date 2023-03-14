@@ -40,6 +40,7 @@ Route::get("/getSmallCardDataBlogdetail/{id}", [CardController::class, 'getSmall
 Route::get("/reloadBlogData/{id}", [CardController::class, 'reloadData']);
 Route::get("/logout/{id}", [LoginController::class, 'logout']);
 Route::get("/getUserData/{id}", [LoginController::class, 'getUserData']);
+Route::get("/getLengthBlogpostDetails/{id}", [BlogController::class, 'getLengthBlogpostDetails']);
 
 Route::post('/register', [RegisterController::class, 'registerPerson']);
 Route::post('/createComment', [CommentController::class, 'create']);

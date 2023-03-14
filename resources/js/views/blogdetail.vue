@@ -33,7 +33,7 @@
 
 
                 <div class="blogdetail__container--builder">
-                    <blogbuilderCreate/>
+                    <blogbuilderCreate :data="parseInt(this.$route.params.id)"/>
                 </div>
 
 
