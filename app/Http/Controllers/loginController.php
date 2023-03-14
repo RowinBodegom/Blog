@@ -33,12 +33,11 @@ class LoginController extends BaseController {
                 if (Auth::attempt($credentials)) {
                     $user = Auth::user();
                     $random_token = Str::random(64);
-                    User::where('id', $user->id)->update([
-                        'token' => $random_token
-                    ]);
                     return response()->json([
-                        'token' => $random_token,
-                        'userid' => $user->id,
+                        "userID" => $user->id,
+                        'name' => $user->name,
+                        'mail' => $user->email,
+                        'profile_picture' => $user->profile_picture,
                     ]);
                 }
                 else {
@@ -52,7 +51,6 @@ class LoginController extends BaseController {
 
     public function getUser(Request $request){
         return User::select('id', 'name', 'email', 'profile_picture','description', 'username')->where("id", $request->id)->where("token", $request->token)->first();
-        
     }
 
     public function getUserData(Request $request){

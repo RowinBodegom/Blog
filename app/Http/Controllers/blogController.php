@@ -14,7 +14,7 @@ class BlogController extends BaseController {
 
     public function createBlog (Request $request) {
         $blog = new BlogPost;
-        if(!$request->img){
+        if($request->img !== null){
             $file = $request->file('img');
             $name = time() . "_" . $request->img->getClientOriginalName();
             $file->storeAs("public/blogImage", $name, 'local');

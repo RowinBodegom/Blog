@@ -45,9 +45,8 @@ export default {
         logout(){
                 axios.get("/api/logout/" + this.user.id)
                 .then((response) => {
-                    console.log("gfjklghdjghgjgdfgnclkbhfg");
                     document.getElementById("subMenu").classList.remove("header__submenubar--show");
-                    localStorage.clear();
+                    sessionStorage.clear();
                     this.$router.push("/");
                 })
                 .catch((error) => {
