@@ -34,6 +34,9 @@ export default {
                 this.$router.push("/");
             })
         }
+        else{
+            this.$router.push("/");
+        }
     }
 }
 </script>
