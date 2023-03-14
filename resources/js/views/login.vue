@@ -47,8 +47,7 @@ export default {
                 })
                 .then((response) => {
                     document.body.classList.remove("loginBody");
-                    localStorage.setItem("userID", response.data.userid);
-                    localStorage.setItem("token", response.data.token);
+                    sessionStorage.setItem("user", JSON.stringify(response.data));
                     document.body.classList.remove("loginBody");
                     this.$router.push("/home");
                 })

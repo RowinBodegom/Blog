@@ -4,7 +4,8 @@
             <div class="home__leftBlock--items">
                 <div class="home__category">
                     <Category :data="categorydata"/>
-                </div>            
+                </div>
+                
                 <div class="home__top-posts">
                     <div class="home__top-posts--title">Top posts</div>
                     <smallCard :data="smallCardData"/>
@@ -28,7 +29,7 @@
     import smallCard from "../components/smallCard.vue";
     import Category from "../components/category-buttons.vue";
     import blogcreate from "../components/blog-create.vue";
-    
+
     export default {
         name: "home",
         components: {Card,Category,blogcreate,smallCard},

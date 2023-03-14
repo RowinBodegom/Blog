@@ -20,19 +20,9 @@ export default {
         }
     },
     created(){
-        let userID = localStorage.getItem("userID");
-        let token = localStorage.getItem("token");
-        if(userID !== null || token !== null){
-            axios.post('api/getUser', {
-                'id': userID,
-                'token': token,
-            })
-            .then(response => {
-                this.user = response.data;
-            })
-            .catch((error) => {
-                this.$router.push("/");
-            })
+        let person = JSON.parse(sessionStorage.getItem("user"));
+        if(person !== null){
+            this.user = person;
         }
         else{
             this.$router.push("/");
