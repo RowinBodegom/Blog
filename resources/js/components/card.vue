@@ -5,7 +5,8 @@
                 <img class="card__pfp" src="/storage/blogImage/standard_pfp.png">
                 <router-link :to='"/profile/"+ item.user_id.id' class="card__username">@{{item.user_id.name}}</router-link>
             </div>
-            <div v-if="this.user.id === item.user_id.id" class="card__container--right">
+
+            <div v-if="user.userID === item.user_id.id" class="card__container--right">
                 <img @click="showEditBlog(item.id)" class="card__write" src="../../assets/draw.png">
                 <img @click="deleteBlog(item.id)" class="card__bin" src="../../assets/bin.png">
                 <div class="card__time">{{item.madedate}}</div>
@@ -31,7 +32,6 @@
     </div>
 </template>
     <script>
-
     import Comment from "../components/comment.vue";
     import blogUpdate from "../components/blog-update.vue";
 

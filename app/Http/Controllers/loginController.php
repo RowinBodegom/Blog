@@ -50,7 +50,6 @@ class LoginController extends BaseController {
     }
 
     public function getUser(Request $request){
-        dd($request);
         return User::select('id', 'name', 'email', 'profile_picture','description', 'username')->where("id", $request->id)->where("token", $request->token)->first();
     }
 
