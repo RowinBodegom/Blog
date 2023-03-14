@@ -31,9 +31,9 @@ const routes = [
         component: () => import("../views/blogdetail")
     },
     {
-        path: '/personal',
-        name: 'personal',
-        component: () => import("../views/personal")
+        path: '/updateUser',
+        name: 'updateUser',
+        component: () => import("../views/updateUser")
     },
 ]
 const router = createRouter({
