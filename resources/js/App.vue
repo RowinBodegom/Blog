@@ -1,5 +1,5 @@
 <template>
-    <Header/>
+    <Header v-bind:user="user"/>
     <router-view v-bind:user="user"></router-view>
     <Footer/>
 </template>
@@ -22,8 +22,8 @@ export default {
     created(){
         let userID = localStorage.getItem("userID");
         let token = localStorage.getItem("token");
-        if(userID !== null && token !== null){
-            axios.post('/api/getUser', {
+        if(userID !== null || token !== null){
+            axios.post('api/getUser', {
                 'id': userID,
                 'token': token,
             })
@@ -31,7 +31,7 @@ export default {
                 this.user = response.data;
             })
             .catch((error) => {
-                console.warn(error)
+                this.$router.push("/");
             })
         }
     }

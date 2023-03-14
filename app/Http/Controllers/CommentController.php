@@ -33,6 +33,10 @@ class CommentController extends BaseController {
         return $items;
     }
 
+    public function deleteComment(Request $request){
+        Comment::where('id', $request->comment_id)->delete($request->comment_id);
+    }
+
     public function getCommentTotal ($id) {
         $items = Comment::where('blogpost_id', $id)->get();
         return count($items);
