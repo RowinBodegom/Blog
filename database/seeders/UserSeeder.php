@@ -30,6 +30,7 @@ class UserSeeder extends Seeder
                 'description' => 'Ik ben gewoon een lopende meme. Ik hou van grappen maken en zal waarschijnlijk alleen maar memes posten. Dus wees bereid voor de slechtste memes die je ooit gaat zien',
                 'profile_picture' => null,
                 'profile_banner' => null,
+                'token' => null,
             ),
 
             array(
@@ -40,6 +41,7 @@ class UserSeeder extends Seeder
                 'description' => 'Voor het geval dat je wilt weten waarom ik gayfish heet. Het is nogal een lang verhaal. Ooit starte ik een pokemon platinum game en zocht naar een goede gebruikers naam en dacht OOH JA gayfish jammer genoeg zag een docent dit en hierdoor heb ik de bijnaam gayfish gekregen.',
                 'profile_picture' => null,
                 'profile_banner' => null,
+                'token' => null,
             ),
 
             array(
@@ -50,6 +52,7 @@ class UserSeeder extends Seeder
                 'description' => 'Wat had je verwacht. Je gaat naar mijn profile om tekijken naar deze prachtige rotzooi van een posts',
                 'profile_picture' => null,
                 'profile_banner' => null,
+                'token' => null,
             ),
             array(
                 'name' => 'Tyler', 
@@ -59,6 +62,7 @@ class UserSeeder extends Seeder
                 'description' => 'Ik ben damian vaartmans zijn secret boyfriend hehe. Hoop dat je houd van mijn posts ze gaan allemaal over hoe hard vaartmans voor me simped',
                 'profile_picture' => null,
                 'profile_banner' => null,
+                'token' => null,
             ),
         );
         foreach ($users as $user){

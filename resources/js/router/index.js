@@ -29,7 +29,12 @@ const routes = [
         path: '/blogdetail/:id',
         name: 'blogdetail',
         component: () => import("../views/blogdetail")
-    }
+    },
+    {
+        path: '/personal',
+        name: 'personal',
+        component: () => import("../views/personal")
+    },
 ]
 const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
