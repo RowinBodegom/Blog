@@ -12,7 +12,7 @@
                 <div class="card__time">{{item.madedate}}</div>
             </div>
         </div>
-        <div :id="'update' + item.id" class="card__update">
+        <div v-if="user.userID === item.user_id.id" :id="'update' + item.id" class="card__update">
             <blogUpdate :data="item"/>
             <button class="card__update__button" @click="hideEditBlog(item.id)">Annuleren</button>
         </div>
