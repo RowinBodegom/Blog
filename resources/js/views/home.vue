@@ -44,7 +44,7 @@
             }
         },
         created() {
-            axios.get('api/getCards/' + this.user.id)
+            axios.get('api/getCards/' + this.user.userID)
             .then(response => this.cardData = response.data)
                 .catch((error) => {
                     console.warn(error)
@@ -55,7 +55,7 @@
                 .catch((error) => {
                     console.warn(error)
                 })
-            axios.get('api/getSmallCard/' + this.user.id)
+            axios.get('api/getSmallCard/' + this.user.userID)
             .then(response => this.smallCardData = response.data)
                 .catch((error) => {
                     console.warn(error)

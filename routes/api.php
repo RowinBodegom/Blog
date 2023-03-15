@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\userController;
 use App\Http\Controllers\CardController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RegisterController;
@@ -94,4 +95,10 @@ Route::controller(CommentController::class)->group(function () {
     // post
     Route::post('/deleteComment','deleteComment');
     Route::post('/createComment', 'create');
+});
+/**
+ * ! userController
+ */
+Route::controller(userController::class)->group(function () {
+    Route::post('/editUser', 'editUser');
 });

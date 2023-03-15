@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller as BaseController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
-
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
@@ -38,6 +37,7 @@ class LoginController extends BaseController {
                         'name' => $user->name,
                         'mail' => $user->email,
                         'profile_picture' => $user->profile_picture,
+                        'profile_banner' => $user->profile_banner
                     ]);
                 }
                 else {
