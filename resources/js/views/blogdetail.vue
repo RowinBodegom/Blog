@@ -55,9 +55,9 @@
 <script>
 import axios from 'axios'
 
-import smallCard from "../components/smallCard.vue";
-import Comment from "../components/comment.vue";
-import blogbuilderCreate from "../components/blogbuilder-create.vue";
+import smallCard from "../components/card/SmallCard.vue";
+import Comment from "../components/blog/Comment.vue";
+import blogbuilderCreate from "../components/blogbuilder/Create.vue";
 
 export default {
     name: "blogdetail",

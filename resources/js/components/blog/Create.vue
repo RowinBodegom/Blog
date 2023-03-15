@@ -36,7 +36,7 @@
 </template>
 
 <script setup>
-import logo from "../../assets/writing.png";
+import logo from "../../../assets/writing.png";
 </script>
 
 <script>
@@ -71,6 +71,7 @@ export default {
         },
         createBlog(){
             const data = new FormData()
+            
             data.append('title', this.title)
             data.append('text', this.text)
             data.append('img', this.img)

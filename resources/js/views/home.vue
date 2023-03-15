@@ -25,10 +25,10 @@
 <script>
     import axios from 'axios'
 
-    import Card from "../components/card.vue";
-    import smallCard from "../components/smallCard.vue";
-    import Category from "../components/category-buttons.vue";
-    import blogcreate from "../components/blog-create.vue";
+    import Card from "../components/card/Card.vue";
+    import smallCard from "../components/card/SmallCard.vue";
+    import Category from "../components/category/ButtonInBlog.vue";
+    import blogcreate from "../components/blog/Create.vue";
 
     export default {
         name: "home",
