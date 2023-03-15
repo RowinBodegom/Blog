@@ -6,6 +6,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Auth;
 use App\Models\BlogPost;
 use App\Models\User;
+use App\Models\blogpostDetails;
 use Illuminate\Support\Facades\Storage;
 use file;
 use Illuminate\Http\Request;
@@ -60,5 +61,10 @@ class BlogController extends BaseController {
         $user = User::where('id', $item->user_id)->select(['id','name', 'profile_picture'])->first();
         $item->user_id = $user;
         return $item;
+    }
+
+    public function getLengthBlogpostDetails($id){
+        $item = blogpostDetails::where('id', $id)->get();
+        return count($item);
     }
 }
