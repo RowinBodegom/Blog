@@ -36,9 +36,9 @@
 
     import axios from 'axios'
 
-    import Card from "../components/card.vue";
-    import blogcreate from "../components/blog-create.vue";
-    import followersCount from "../components/followers-count.vue";
+    import Card from "../components/card/Card.vue";
+    import blogcreate from "../components/blog/Create.vue";
+    import followersCount from "../components/blog/Followers-count.vue";
     export default {
         name: 'profile',
         props: ["user"],
