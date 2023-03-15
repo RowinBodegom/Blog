@@ -1,15 +1,15 @@
 <template>
     <div class="blogbuilder--addimg">
         <div>
-            <select class="blogbuilder--addimg__select" id="select" @change="changeImgType()">
-                <option class="blogbuilder--addimg__option" value="" hidden>kies een format</option>
+            <select class="blogbuilder__select" id="select" @change="changeImgType()">
+                <option class="blogbuilder__option" value="" hidden>kies een format</option>
                 <template v-for="item of formatArray">
-                    <option class="blogbuilder--addimg__option">{{ item }}</option>
+                    <option class="blogbuilder__option">{{ item }}</option>
                 </template>
             </select>
         </div>
         <div>
-            <template v-if="display_type === 'normal'">
+            <template v-if="type === 'normal'">
                 <ul>
                     <li>
                         <input type="file" ref="file" v-on:change="getFiles(this.$refs.file, 0)"/>
@@ -22,7 +22,7 @@
                     </li>
                 </ul>  
             </template>
-            <template v-if="display_type === 'slideshow'">
+            <template v-if="type === 'slideshow'">
                 <ul>
                     <li>
                         <input type="file" ref="file" v-on:change="getFiles(this.$refs.file, 0)"/>
@@ -63,7 +63,6 @@ export default {
             ],
             type: "img",
             position: null,
-            display_type: null,
             img: [],
         }
     },
@@ -82,20 +81,30 @@ export default {
             this.img[$number] = $ref.files[0];
         },
         changeImgType(){
-            this.display_type = document.getElementById("select").value;
+            this.type = document.getElementById("select").value;
             this.img = [];
         },
         submit(){
-            console.log('submiting');
             const data = new FormData()
 
             data.append('blogpost_id', this.blog_ID)
             data.append('type', this.type)
             data.append('position', this.position)
-            data.append('display_type', this.display_type)
             data.append('img', this.img)
             
-            axios.post("/api/blogbuilder/addImg", data)
+            axios.post("/api/blogbuilder/createElement", data)
+            .then((response) => {
+                const img = this.img;
+                img.forEach(element => {
+                    const img = new FormData();
+
+                    img.append('blogdetail_id', response.data);
+                    img.append('img', element);
+                    
+                    axios.post("/api/blogbuilder/createElement/img", img)
+                }); 
+                window.location.reload();
+            })
         },
     }
 }
