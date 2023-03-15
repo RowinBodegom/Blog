@@ -8,8 +8,8 @@
             <div class="blogdetail__menu--left">
                 <div class="blogdetail__test">
                 <div class="blogdetail__container--img" v-if="mainData.length != 0">
-                        <img class="blogdetail__pfp" v-if="mainData.user_id.profile_picture != null" :src="'/storage/blogImage/'+mainData.user_id.profile_picture">
-                        <img class="blogdetail__pfp" v-else src="/storage/blogImage/standard_pfp.png">
+                        <img class="blogdetail__pfp" v-if="mainData.user_id.profile_picture === null" src="/storage/blogImage/standard_pfp.png">
+                        <img class="blogdetail__pfp" v-else :src="'/storage/blogImage/'+mainData.user_id.profile_picture" >
                     </div>
                     <div class="blogdetail__container--smallcard">
                         <div class="blogdetail__cardtitle">Meer van deze blogger</div>
@@ -30,6 +30,13 @@
                 </div>
                 <div class="blogdetail__text blogdetail__text--title">{{ mainData['title'] }}</div>
                 <div class="blogdetail__text blogdetail__text--opening">{{ mainData['text'] }}</div>
+
+
+                <div class="blogdetail__container--builder">
+                    <blogbuilderCreate :data="parseInt(this.$route.params.id)"/>
+                </div>
+
+
                 <div class="blogdetail__reacties">
                     <div class="blogdetail__reacties--container">
                         <div class="blogdetail__reacties--title">reacties</div>
@@ -48,17 +55,18 @@
 <script>
 import axios from 'axios'
 
-import smallCard from "../components/smallCard.vue";
-import Comment from "../components/comment.vue";
+import smallCard from "../components/card/SmallCard.vue";
+import Comment from "../components/blog/Comment.vue";
+import blogbuilderCreate from "../components/blogbuilder/Create.vue";
 
 export default {
     name: "blogdetail",
-    components: {smallCard,Comment},
+    components: {smallCard,Comment,blogbuilderCreate},
     props: ["user"],
     data(){
         return {
             blogpost_id : this.$route.params.id,
-            mainData : null, /** this is going to be an array */
+            mainData : [], /** this is going to be an array */
             user_id : [],
             categoryData : [],
             smallCardData : [],

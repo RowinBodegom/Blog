@@ -6,12 +6,15 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Auth;
 use App\Models\BlogPost;
 use App\Models\User;
+use App\Models\blogpostDetails;
 use Illuminate\Support\Facades\Storage;
 use file;
 use Illuminate\Http\Request;
 
 class BlogController extends BaseController {
-
+    /**
+     * !this is for the general blog data
+     */
     public function createBlog (Request $request) {
         $blog = new BlogPost;
         if($request->img !== null){
@@ -60,5 +63,23 @@ class BlogController extends BaseController {
         $user = User::where('id', $item->user_id)->select(['id','name', 'profile_picture'])->first();
         $item->user_id = $user;
         return $item;
+    }
+
+    public function getLengthBlogpostDetails($id){
+        $item = blogpostDetails::where('id', $id)->get();
+        return count($item);
+    }
+
+    /**
+     * ! the functions below are for the blogdetailbuilder feature
+     */
+    public function blogbuilderAddImg(Request $request){
+        // dd($request);
+        $blog = new blogpostDetails;
+        $blog->blogpost_id = $request->blogpost_id;
+        $blog->position = $request->position;
+        $blog->type = $request->type;
+        $blog->save();
+        // dd($blog);
     }
 }

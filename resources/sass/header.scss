@@ -52,6 +52,11 @@
             li{
                 color: $Blue;
                 cursor: pointer;
+                
+                a{
+                    color: $Blue;
+                    text-decoration: none;
+                }
             }
         }
     }
