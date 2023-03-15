@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('position');
             $table->string('title');
             $table->text('text');
+            $table->timestamps();
         });
     }
 

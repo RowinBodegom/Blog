@@ -86,13 +86,16 @@ export default {
             this.img = [];
         },
         submit(){
+            console.log('submiting');
             const data = new FormData()
-            data.append('blog_ID', this.blog_ID)
+
+            data.append('blogpost_id', this.blog_ID)
             data.append('type', this.type)
+            data.append('position', this.position)
             data.append('display_type', this.display_type)
             data.append('img', this.img)
-
-            post.get("/api/addImg" + data)
+            
+            axios.post("/api/blogbuilder/addImg", data)
         },
     }
 }

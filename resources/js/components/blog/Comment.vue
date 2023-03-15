@@ -3,7 +3,7 @@
         <div class="comment__line" v-for="item of commentData">
             <img class="comment__pfp" src="/storage/blogImage/standard_pfp.png">
             <div class="comment__text">{{ item.text }}</div>
-            <img @click="deleteComment(item.id)" class="card__bin" src="../../assets/bin.png">
+            <img @click="deleteComment(item.id)" class="card__bin" src="../../../assets/bin.png">
         </div>
         <div class="comment__line" v-if="commentData.length < 3 || data[1] == 'unlimited'">
             <img class="comment__pfp" src="/storage/blogImage/standard_pfp.png">
@@ -14,6 +14,7 @@
 
 <script>
     import axios from 'axios';
+    
     export default {
         name: "Comment",
         props: {

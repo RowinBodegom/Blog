@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('position');
             $table->string('display_type');
             $table->string('img');
+            $table->timestamps();
         });
     }
 

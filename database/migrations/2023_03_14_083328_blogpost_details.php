@@ -19,6 +19,8 @@ return new class extends Migration
             $table->integer('position');
             $table->string('type');
             $table->string('data')->nullable();
+            $table->boolean('archived')->default(false);
+            $table->timestamps();
         });
     }
 
