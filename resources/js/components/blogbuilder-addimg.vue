@@ -1,15 +1,47 @@
 <template>
-    <div class="blogbuilder-addtext">
+    <div class="blogbuilder--addimg">
         <div>
-            <select class="createblog__select" id="select" @change="changeImgType()">
-                <option class="createblog__option" value="" hidden>kies een format</option>
+            <select class="blogbuilder--addimg__select" id="select" @change="changeImgType()">
+                <option class="blogbuilder--addimg__option" value="" hidden>kies een format</option>
                 <template v-for="item of formatArray">
-                    <option class="createblog__option">{{ item }}</option>
+                    <option class="blogbuilder--addimg__option">{{ item }}</option>
                 </template>
             </select>
         </div>
         <div>
-            <input type="file" ref="files" name="img" v-on:change="getFiles()"/>
+            <template v-if="display_type === 'normal'">
+                <ul>
+                    <li>
+                        <input type="file" ref="file" v-on:change="getFiles(this.$refs.file, 0)"/>
+                    </li>
+                    <li v-if="img.length >= 1" >
+                        <input type="file" ref="file1" v-on:change="getFiles(this.$refs.file1, 1)"/>
+                    </li>
+                    <li v-if="img.length >= 2" >
+                        <input type="file" ref="file2" v-on:change="getFiles(this.$refs.file2, 2)"/>
+                    </li>
+                </ul>  
+            </template>
+            <template v-if="display_type === 'slideshow'">
+                <ul>
+                    <li>
+                        <input type="file" ref="file" v-on:change="getFiles(this.$refs.file, 0)"/>
+                    </li>
+                    <li v-if="img.length >= 1" >
+                        <input type="file" ref="file1" v-on:change="getFiles(this.$refs.file1, 1)"/>
+                    </li>
+                    <li v-if="img.length >= 2" >
+                        <input type="file" ref="file2" v-on:change="getFiles(this.$refs.file2, 2)"/>
+                    </li>
+                    <li v-if="img.length >= 3" >
+                        <input type="file" ref="file3" v-on:change="getFiles(this.$refs.file3, 3)"/>
+                    </li>
+                    <li v-if="img.length >= 4" >
+                        <input type="file" ref="file4" v-on:change="getFiles(this.$refs.file4, 4)"/>
+                    </li>
+                </ul>  
+            </template>
+            <button @click="submit()">aanmaken</button>
         </div>
     </div>
 </template>
@@ -46,13 +78,21 @@ export default {
         })
     },
     methods: {
-        getFiles(){
-            this.img.push(this.$refs.files.files[0]);
-            console.log(this.img);
+        getFiles($ref, $number){
+            this.img[$number] = $ref.files[0];
         },
         changeImgType(){
             this.display_type = document.getElementById("select").value;
-            console.log(this.display_type);
+            this.img = [];
+        },
+        submit(){
+            const data = new FormData()
+            data.append('blog_ID', this.blog_ID)
+            data.append('type', this.type)
+            data.append('display_type', this.display_type)
+            data.append('img', this.img)
+
+            post.get("/api/addImg" + data)
         },
     }
 }

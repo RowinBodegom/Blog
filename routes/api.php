@@ -24,33 +24,74 @@ use App\Http\Controllers\BlogController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+/**
+ * ! cardcontroller
+ */
+Route::controller(CardController::class)->group(function () {
+    // get
+    Route::get("/getCards/{id}",'getCardData');
+    Route::get("/getProfileCards/{id}",'getProfileCards');
+    Route::get("/getSmallCard/{id}",'getSmallCardData');
+    Route::get("/getSmallCardDataBlogdetail/{id}",'getSmallCardDataBlogdetail');
+    Route::get("/reloadBlogData/{id}",'reloadData');
+});
+/**
+ * ! CategoryController
+ */
+Route::controller(CategoryController::class)->group(function () {
+    // get
+    Route::get("/getCategory", 'getData');
+    Route::get("/getAllCategory", 'getAll');
+    Route::get("/getLinkedCategoryBlogpost/{id}", 'getLinkedCategoryBlogpost');
 
-Route::get("/getCards/{id}", [CardController::class, 'getCardData']);
-Route::get("/getProfileCards/{id}", [CardController::class, 'getProfileCards']);
-Route::get("/getCategory", [CategoryController::class, 'getData']);
-Route::get("/getAllCategory", [CategoryController::class, 'getAll']);
-Route::get("/getSmallCard/{id}", [CardController::class, 'getSmallCardData']);
-Route::get("/getComment/{id}/{modifier}", [CommentController::class, 'getData']);
-Route::get("/getCommentTotal/{id}", [CommentController::class, 'getCommentTotal']);
-Route::get("/allBlogs", [BlogController::class, 'getAllBlogs']);
-Route::get("/test", [LoginController::class, 'test']);
-Route::get("/obtainBlogpostData/{id}", [BlogController::class, 'obtainBlogpostData']);
-Route::get("/getLinkedCategoryBlogpost/{id}", [CategoryController::class, 'getLinkedCategoryBlogpost']);
-Route::get("/getSmallCardDataBlogdetail/{id}", [CardController::class, 'getSmallCardDataBlogdetail']);
-Route::get("/reloadBlogData/{id}", [CardController::class, 'reloadData']);
-Route::get("/logout/{id}", [LoginController::class, 'logout']);
-Route::get("/getUserData/{id}", [LoginController::class, 'getUserData']);
-Route::get("/getLengthBlogpostDetails/{id}", [BlogController::class, 'getLengthBlogpostDetails']);
-
-Route::post('/register', [RegisterController::class, 'registerPerson']);
-Route::post('/createComment', [CommentController::class, 'create']);
-Route::post('/createBlog', [BlogController::class, 'createBlog']);
-Route::post('/editBlog', [BlogController::class, 'editBlog']);
-Route::post('/deleteBlog/{id}', [BlogController::class, 'deleteBlog']);
-Route::post('/deleteComment', [CommentController::class, 'deleteComment']);
-Route::post('/linkCategoryToBlogpost', [CategoryController::class, 'linkCategoryToPost']);
-
+    // post
+    Route::post('/linkCategoryToBlogpost',  'linkCategoryToPost');
+});
+/**
+ * ! RegisterController
+ */
+Route::controller(RegisterController::class)->group(function () {
+    // post
+    Route::post('/register', 'registerPerson');
+});
+/**
+ * ! LoginController
+ */
 Route::controller(LoginController::class)->group(function () {
+    // get
+    Route::get("/test", 'test');
+    Route::get("/logout/{id}", 'logout');
+    Route::get("/getUserData/{id}", 'getUserData');
+
+    // post
     Route::post('/login', 'checkLogin');
     Route::post('/getUser', 'getUser');
+});
+/**
+ * ! BlogController
+ */
+Route::controller(BlogController::class)->group(function () {
+    // get
+    Route::get("/allBlogs", 'getAllBlogs');
+    Route::get("/obtainBlogpostData/{id}", 'obtainBlogpostData');
+    Route::get("/getLengthBlogpostDetails/{id}", 'getLengthBlogpostDetails');
+
+    // post
+    Route::post('/addImg', 'blogbuilderAddImg');
+    Route::post('/editBlog', 'editBlog');
+    Route::post('/createBlog', 'createBlog');
+    Route::post('/deleteBlog/{id}', 'deleteBlog');
+
+});
+/**
+ * ! CommentController
+ */
+Route::controller(CommentController::class)->group(function () {
+    // get
+    Route::get("/getComment/{id}/{modifier}", 'getData');
+    Route::get("/getCommentTotal/{id}", 'getCommentTotal');
+
+    // post
+    Route::post('/deleteComment','deleteComment');
+    Route::post('/createComment', 'create');
 });
