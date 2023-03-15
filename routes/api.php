@@ -77,7 +77,8 @@ Route::controller(BlogController::class)->group(function () {
     Route::get("/getLengthBlogpostDetails/{id}", 'getLengthBlogpostDetails');
 
     // post
-    Route::post('/blogbuilder/addImg', 'blogbuilderAddImg');
+    Route::post('/blogbuilder/createElement', 'blogbuilderCreateElement');
+    Route::post('/blogbuilder/createElement/img', 'blogbuilderCreateElement_img');
     Route::post('/editBlog', 'editBlog');
     Route::post('/createBlog', 'createBlog');
     Route::post('/deleteBlog/{id}', 'deleteBlog');

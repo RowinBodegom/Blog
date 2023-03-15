@@ -15,9 +15,7 @@ return new class extends Migration
     {
         Schema::create('blogpost_details_img', function (Blueprint $table) {
             $table->id();
-            $table->integer('blogpost_id');
-            $table->integer('position');
-            $table->string('display_type');
+            $table->integer('blogdetail_id');
             $table->string('img');
             $table->timestamps();
         });

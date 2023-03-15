@@ -15,8 +15,7 @@ return new class extends Migration
     {
         Schema::create('blogpost_details_text', function (Blueprint $table) {
             $table->id();
-            $table->integer('blogpost_id');
-            $table->integer('position');
+            $table->integer('blogdetail_id');
             $table->string('title');
             $table->text('text');
             $table->timestamps();
