@@ -76,9 +76,12 @@ Route::controller(BlogController::class)->group(function () {
     Route::get("/allBlogs", 'getAllBlogs');
     Route::get("/obtainBlogpostData/{id}", 'obtainBlogpostData');
     Route::get("/getLengthBlogpostDetails/{id}", 'getLengthBlogpostDetails');
+    Route::get("/blogdetail/getContent/{id}", 'blogdetailgetContent');
 
     // post
-    Route::post('/blogbuilder/addImg', 'blogbuilderAddImg');
+    Route::post('/blogbuilder/createElement', 'blogbuilderCreateElement');
+    Route::post('/blogbuilder/createElement/img', 'blogbuilderCreateElement_img');
+    Route::post('/blogbuilder/createElement/text', 'blogbuilderCreateElement_text');
     Route::post('/editBlog', 'editBlog');
     Route::post('/createBlog', 'createBlog');
     Route::post('/deleteBlog/{id}', 'deleteBlog');
