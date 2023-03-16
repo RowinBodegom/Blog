@@ -20,9 +20,9 @@ export default {
         }
     },
     created(){
-        let person = JSON.parse(sessionStorage.getItem("user"));
-        if(person !== null){
-            this.user = person;
+        let user = JSON.parse(sessionStorage.getItem("user"));
+        if(user !== null){
+            this.user = user;
         }
         else{
             this.$router.push("/");

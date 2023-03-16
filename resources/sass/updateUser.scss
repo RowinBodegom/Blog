@@ -1,12 +1,34 @@
-.updateUserForm{
-    background-color: $lightGray;
-    display: grid;
-    gap: 20px;
-    width: 50%;
-    position: relative;
-    margin: 20vw 0;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 20px;
-    border-radius: 20px;
+.updateUser{
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: $darkWhite;
+    padding: 12% 0;
+
+    &__form{
+        font-family: $font-work;
+        background-color: $lightWhite;
+        display: grid;
+        gap: 2vh;
+        width: 50%;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    &__input{
+        border-radius: 1rem;
+        background-color: $darkWhite;
+        padding: 0.5rem;
+    }
+
+    &__button{
+        background-color: $darkWhite;
+        font-family: $font-work;
+        margin-top: 0.2rem;
+        border-radius: 1rem;
+        padding: 0.4rem 1.2rem;
+        border: 1px solid $darkWhite;
+        transition-duration: 0.3s;
+    }
 }

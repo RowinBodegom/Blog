@@ -15,6 +15,8 @@ class userController extends BaseController {
 
     public function editUser(Request $request){
         $user = User::where('id', $request->id)->first();
+        $profilePictureName = null;
+        $bannerName = null;
         if($request->profilePicture !== null){
             if($user->profile_picture !== null){
                 unlink(storage_path('app/public/profilePicture/'.$user->profile_picture));

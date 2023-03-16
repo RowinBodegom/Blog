@@ -15,8 +15,8 @@
                 </ul>
             </nav>
             <div class="header__subnavigationbar">
-                <img v-if="user.profile_picture !== null" @click="showSub()" class="header__person--foto" :src="'/storage/profilePicture/'+user.profile_picture"/>
-                <img v-else @click="showSub()" class="header__person--foto"  :src="'/storage/profilePicture/standard_pfp.png'"/>
+                <img v-if="defaultPic" @click="showSub()" class="header__person--foto" :src="'/storage/profilePicture/'+user.profile_picture" alt="waddap"/>
+                <img v-else @click="showSub()" class="header__person--foto"  :src="'/storage/profilePicture/standard_pfp.png'" alt="hoi"/>
                 <nav class="header__submenubar" id="subMenu">
                     <ul>
                         <li @click="logout()">logout</li>
@@ -41,6 +41,16 @@ export default {
             default: null,
             type: Object,
         },
+    },
+    data(){
+        return{
+            defaultPic: true,
+        }
+    },
+    created(){
+        if(sessionStorage.getItem("user") === null || this.user.profile_picture === null){
+            this.defaultPic = false;
+        }
     },
     methods: {
         logout(){

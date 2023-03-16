@@ -1,8 +1,11 @@
 .footer{
     display: flex;
+    position: relative;
+    top: 100%;
     justify-content: space-between;
     align-items: center;
     padding: 2vw;
+    margin-top: auto;
     font-family: "Work Sans", sans-serif;
 
     &__blog{
