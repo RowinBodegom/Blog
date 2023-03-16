@@ -6,13 +6,13 @@
                 <router-link :to='"/profile/"+ item.user_id.id' class="card__username">@{{item.user_id.name}}</router-link>
             </div>
 
-            <div v-if="user.userID === item.user_id.id" class="card__container--right">
+            <div v-if="user.userID == item.user_id.id" class="card__container--right">
                 <img @click="showEditBlog(item.id)" class="card__write" src="../../../assets/draw.png">
                 <img @click="deleteBlog(item.id)" class="card__bin" src="../../../assets/bin.png">
                 <div class="card__time">{{item.madedate}}</div>
             </div>
         </div>
-        <div v-if="user.userID === item.user_id.id" :id="'update' + item.id" class="card__update">
+        <div v-if="user.userID == item.user_id.id" :id="'update' + item.id" class="card__update">
             <blogUpdate :data="item"/>
             <button class="card__update__button" @click="hideEditBlog(item.id)">Annuleren</button>
         </div>

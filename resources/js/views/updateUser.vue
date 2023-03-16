@@ -1,15 +1,18 @@
 
 <template>
-    <section class="updateUserForm">
-        <input type="text" v-model="name" placeholder="new name">
-        <input type="text" v-model="username" placeholder="new username">
-        <input type="email" v-model="mail" placeholder="mail">
-        <input type="password" v-model="password" placeholder="new password">
-        <input type="password" v-model="passwordAgain" placeholder="new password again">
-        <label for="profilePicture">profile picture: <input type="file" ref="profilePicture" v-on:change="getFiles()"></label>
-        <label for="banner">banner: <input type="file" ref="banner" v-on:change="getFiles()"></label>
-        <button @click="updateUser()">update je zelf</button>
-    </section>
+    <div class="updateUser">
+        <section class="updateUser__form">
+            <input class="updateUser__input" type="text" v-model="name" placeholder="new name">
+            <input class="updateUser__input" type="text" v-model="username" placeholder="new username">
+            <input class="updateUser__input" type="email" v-model="mail" placeholder="mail">
+            <input class="updateUser__input" type="password" v-model="password" placeholder="new password">
+            <input class="updateUser__input" type="password" v-model="passwordAgain" placeholder="new password again">
+            <label for="profilePicture">profile picture: <input class="updateUser__button updateUser__button--file" type="file" ref="profilePicture" v-on:change="getFiles()"></label>
+            <label for="banner">banner: <input type="file" class="updateUser__button updateUse__button--file" ref="banner" v-on:change="getFiles()"></label>
+            <button class="updateUser__button" @click="updateUser()">update je zelf</button>
+        </section>
+    </div>
+    
 </template>
 
 <script>
@@ -22,7 +25,7 @@ export default {
     data(){
         return {
             name: null,
-            unsername: null,
+            username: null,
             mail: null,
             password: null,
             passwordAgain: null,
