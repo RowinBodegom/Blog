@@ -8,6 +8,7 @@ use App\Models\BlogPost;
 use App\Models\User;
 use App\Models\blogpostDetails;
 use App\Models\blogpostDetails_img;
+use App\Models\blogpostDetails_text;
 use Illuminate\Support\Facades\Storage;
 use file;
 use Illuminate\Http\Request;
@@ -66,6 +67,22 @@ class BlogController extends BaseController {
         return $item;
     }
     /**
+     * ! these functions are for the blogdetail page alone
+     */
+    public function blogdetailgetContent($id){
+        $content = blogpostDetails::where('blogpost_id', $id)->get();
+        foreach( $content as $item) {
+            if($item->type == 'afbeelding' || $item->type == 'diavoorstelling'){
+                $images = blogpostDetails_img::where('blogdetail_id', $item->id)->select('img')->get();
+                $item->data = $images;
+            } else if ($item->type == 'met' || $item->type == 'zonder') {
+                $text = blogpostDetails_text::where('blogdetail_id', $item->id)->select('title', 'text')->get();
+                $item->data = $text;
+            }
+        }
+        return $content;
+    }
+    /**
      * ! the functions below are for the blogdetailbuilder feature
      */
     public function getLengthBlogpostDetails($id){
@@ -96,10 +113,10 @@ class BlogController extends BaseController {
     }
 
     public function blogbuilderCreateElement_text(Request $request){
-        $blogdetail = new blogpostDetails_img;
-        $blogdetail->blogpost_id = $request->blogpost_id;
-        $blogdetail->position = $request->position;
-        $blogdetail->type = $request->type;
+        $blogdetail = new blogpostDetails_text;
+        $blogdetail->blogdetail_id = $request->blogdetail_id;
+        $blogdetail->title = $request->title;
+        $blogdetail->text = $request->text;
         $blogdetail->save();
 
         return $blogdetail->id;

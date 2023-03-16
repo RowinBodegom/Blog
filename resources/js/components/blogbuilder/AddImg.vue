@@ -9,7 +9,7 @@
             </select>
         </div>
         <div>
-            <template v-if="type === 'normal'">
+            <template v-if="type === formatArray[0]">
                 <ul>
                     <li>
                         <input type="file" ref="file" v-on:change="getFiles(this.$refs.file, 0)"/>
@@ -22,7 +22,7 @@
                     </li>
                 </ul>  
             </template>
-            <template v-if="type === 'slideshow'">
+            <template v-if="type === formatArray[1]">
                 <ul>
                     <li>
                         <input type="file" ref="file" v-on:change="getFiles(this.$refs.file, 0)"/>
@@ -41,7 +41,9 @@
                     </li>
                 </ul>  
             </template>
-            <button @click="submit()">aanmaken</button>
+            <template  v-if="type">
+                <button @click="submit()">aanmaken</button>
+            </template>
         </div>
     </div>
 </template>
@@ -58,10 +60,10 @@ export default {
         return {
             blog_ID: this.data,
             formatArray: [
-                'normal',
-                'slideshow'
+                'afbeelding',
+                'diavoorstelling'
             ],
-            type: "img",
+            type: null,
             position: null,
             img: [],
         }

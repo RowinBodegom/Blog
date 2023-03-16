@@ -8,6 +8,7 @@
     <div class="blogbuilder--addtext">
         <textarea class="blogbuilder--addtext__input--text" autocomplete="off" type="text" name="text" v-model="text" placeholder="schrijf een paragraaf"></textarea> 
     </div>
+    <button @click="submit()">text toevoegen</button>
 </template>
 
 <script>
@@ -48,6 +49,25 @@ export default {
                 document.getElementById("toggleTitle").innerHTML = "title toevoegen";
             }
         },
+        submit(){
+            const data = new FormData()
+
+            data.append('blogpost_id', this.blog_ID)
+            data.append('type', this.type)
+            data.append('position', this.position)
+            
+            axios.post("/api/blogbuilder/createElement", data)
+            .then((response) => {
+                const text = new FormData();
+
+                text.append('blogdetail_id', response.data);
+                text.append('title', this.title);
+                text.append('text', this.text);
+                
+                axios.post("/api/blogbuilder/createElement/text", text)
+                window.location.reload();
+            })
+        }
     }
 }
 </script>
