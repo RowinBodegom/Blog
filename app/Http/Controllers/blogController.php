@@ -73,14 +73,21 @@ class BlogController extends BaseController {
         $content = blogpostDetails::where('blogpost_id', $id)->get();
         foreach( $content as $item) {
             if($item->type == 'afbeelding' || $item->type == 'diavoorstelling'){
-                $images = blogpostDetails_img::where('blogdetail_id', $item->id)->select('img')->get();
+                $images = blogpostDetails_img::where('blogdetail_id', $item->id)->select('id','img')->get();
                 $item->data = $images;
             } else if ($item->type == 'met' || $item->type == 'zonder') {
-                $text = blogpostDetails_text::where('blogdetail_id', $item->id)->select('title', 'text')->get();
+                $text = blogpostDetails_text::where('blogdetail_id', $item->id)->select('id','title', 'text')->get();
                 $item->data = $text;
             }
         }
         return $content;
+    }
+
+    public function blogdetailupdateElement_text(Request $request){
+        blogpostDetails_text::where('id', $request->id)->update([
+            "title" => $request->title,
+            "text" => $request->text,
+        ]);
     }
     /**
      * ! the functions below are for the blogdetailbuilder feature

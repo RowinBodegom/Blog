@@ -81,6 +81,7 @@ Route::controller(BlogController::class)->group(function () {
     Route::post('/blogbuilder/createElement', 'blogbuilderCreateElement');
     Route::post('/blogbuilder/createElement/img', 'blogbuilderCreateElement_img');
     Route::post('/blogbuilder/createElement/text', 'blogbuilderCreateElement_text');
+    Route::post('/blogdetail/update/text', 'blogdetailupdateElement_text');
     Route::post('/editBlog', 'editBlog');
     Route::post('/createBlog', 'createBlog');
     Route::post('/deleteBlog/{id}', 'deleteBlog');
