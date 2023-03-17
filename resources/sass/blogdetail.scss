@@ -53,7 +53,7 @@
         }
     }
 
-    &__edit{
+    &__hover{
         &--img{
             &:hover{
                 -webkit-filter: brightness(70%);
@@ -64,17 +64,25 @@
                 transition: all 0.3s ease;
             }
         }
+        &--text{
+            &:hover{
+                transition: all 0.3s ease;
+                color: $darkRed;
+            }
+        }
     }
 
     &__mode{
-        &__text{
-            &--edit{
-                transition-duration: 0.3s;
-                &:hover{
-                    color: red;
-                }
-
-            }
+        position: relative;
+        bottom: -7vw;
+        height: 0;
+        font-size: 1vw;
+        font-family: $chunkyfive-ex;
+        &--edit{
+            color: $Blue;
+        }
+        &--delete{
+            color: $darkRed;
         }
     }
 
@@ -179,5 +187,60 @@
     }
     &--show{
         display: block;
+    }
+
+    &__input{
+        margin-bottom: 0.5vw;
+        &__text{
+            font-family: $font-work;
+            border-radius: 1vw;
+            background-color: $darkWhite;
+            color: $darkGray;
+            padding-left: 1vw;
+            width: 100%;
+            &--textarea{
+                height: fit-content;
+                min-height: 3vw;
+                resize: vertical;
+            }
+            &--title{
+                padding: 0.2vw 0.3vw;
+            }
+        }
+        &__img{
+            padding: 0.2rem 0.8rem;
+            border: $Blue 0.1vw solid;
+            border-radius: 10vw;
+        }
+        &__button{
+            padding: 0.2rem 0.8rem;
+            border: 0.1vw solid;
+            border-radius: 10vw;
+            &--submit{
+                background-color: $Blue;
+                border-color: $Blue;
+                color: $lightWhite;
+                &:hover{
+                    transition: all 0.3s ease;
+                    background-color: $Orange;
+                    border-color: $Orange;
+                }
+            }
+            &--cancel{
+                background-color: $Orange;
+                border-color: $Orange;
+                color: $lightWhite;
+                &:hover{
+                    transition: all 0.3s ease;
+                    background-color: $Blue;
+                    border-color: $Blue;
+                }
+            }
+        }
+        &__container{
+            &--button{
+                margin-top: 0.3vw;
+            }
+        }
     }
 }

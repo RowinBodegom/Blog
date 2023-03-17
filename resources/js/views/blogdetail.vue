@@ -19,11 +19,17 @@
                 
             </div>
             <div class="blogdetail__menu--right">
+                <div class="blogdetail__mode blogdetail__mode--edit" v-if="mode === 'edit'">
+                    je kan nu de pagina bewerken
+                </div>
+                <div class="blogdetail__mode blogdetail__mode--delete" v-else-if="mode === 'delete'">
+                    je kan nu stukken van de pagina verwijderen
+                </div>
                 <div class="blogdetail__container blogdetail__container--top">
                     <div>
                         <button class="blogdetail__button blogdetail__button--category" v-for="item of categoryData">{{item}}</button>
                     </div>
-                    <div class="blogdetail__container--icon">
+                    <div v-if="user.userID === user_id" class="blogdetail__container--icon">
                         <img @click="toggleEdit()" class="blogdetail__icon blogdetail__icon--update" src="../../assets/draw.png">
                         <img @click="toggleDelete()" class="blogdetail__icon blogdetail__icon--delete" src="../../assets/bin.png">
                     </div>
@@ -38,7 +44,7 @@
                     <WithoutTitle v-else-if="item.type == 'zonder'" :data="item.data" :modifier="mode"/>
                 </div>
 
-                <div class="blogdetail__container--builder">
+                <div v-if="user.userID === user_id" class="blogdetail__container--builder">
                     <blogbuilderCreate :data="parseInt(this.$route.params.id)"/>
                 </div>
 
@@ -71,12 +77,15 @@ import blogbuilderCreate from "../components/blogbuilder/Create.vue";
 export default {
     name: "blogdetail",
     components: {smallCard,Comment,blogbuilderCreate,Image,Slideshow,WithoutTitle,WithTitle},
-    props: ["user"],
+    props: {
+        user: Object,
+    },
     data(){
         return {
             blogpost_id : this.$route.params.id,
             mainData : [], /** this is going to be an array */
             user_id : [],
+            loginUserId: null,
             categoryData : [],
             smallCardData : [],
             content : [],
@@ -85,7 +94,7 @@ export default {
     },
     
     async created() {
-        await axios.get('/api/obtainBlogpostData/' + this.blogpost_id)
+        axios.get('/api/obtainBlogpostData/' + this.blogpost_id)
         .then((response) => {
                 this.mainData = response.data;
                 this.user_id = this.mainData['user_id']['id'];
@@ -93,7 +102,6 @@ export default {
         .catch((error) => {
             console.warn(error)
         })
-        
         await axios.get('/api/getLinkedCategoryBlogpost/' + this.blogpost_id)
         .then((response) => {
             if(response){
@@ -130,7 +138,11 @@ export default {
             
         },
         toggleDelete(){
-
+            if(this.mode != 'delete'){
+                this.mode = 'delete';
+            } else {
+                this.mode = 'view'
+            }
         }
     },
 }

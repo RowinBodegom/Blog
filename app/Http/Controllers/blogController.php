@@ -93,10 +93,16 @@ class BlogController extends BaseController {
         $file = $request->file('img');
         $name = time() . "_" . $request->img->getClientOriginalName();
         $file->storeAs("public/blogImage", $name, 'local');
-        
+
         blogpostDetails_img::where('id', $request->id)->update([
             "img" => $name,
         ]);
+    }
+    public function blogdetailDeleteElement_img(Request $request){
+        blogpostDetails_img::where('id', $request->id)->delete($request->id);
+    }
+    public function blogdetailDeleteElement_text(Request $request){
+        blogpostDetails_text::where('id', $request->id)->delete($request->id);
     }
     /**
      * ! the functions below are for the blogdetailbuilder feature
