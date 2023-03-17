@@ -44,6 +44,7 @@ import logo from "../../../assets/writing.png";
 import axios from 'axios'
 
 export default {
+    // data presets
     data(){
         return {
             showCreateBlog : false,
@@ -65,9 +66,11 @@ export default {
         })
     },
     methods:{
+        // getFile gets the file form a input when input changes
         getFile(){
             this.img = this.$refs.files.files[0];
         },
+        // createBlog gets formd data for a axios post
         createBlog(){
             const data = new FormData()
             
@@ -89,12 +92,14 @@ export default {
                 console.warn(error);
             })
         },
+        // addCategoryToBlogpost axios post to save categories linked to the previous created blogpost in a database
         addCategoryToBlogpost(blogpost_id){
             axios.post("/api/linkCategoryToBlogpost",{
                 'blogpost_id' : blogpost_id,
                 'category' : this.selected,
             })
         },
+        // showCreate allows the create filed to be loaded when it isn't visable
         showCreate(){
             if(this.showCreateBlog == false){
                 document.getElementById("createblog__container--1").classList.toggle("createblog__container--show");
@@ -102,6 +107,7 @@ export default {
                 this.showCreateBlog = true
             }
         },
+        // hideCreate hides the create to disable the user for making a new post
         hideCreate(){
             if(this.showCreateBlog == true){
                 document.getElementById("createblog__container--1").classList.toggle("createblog__container--show");
@@ -114,11 +120,13 @@ export default {
                 this.selected = [];
             }
         },
+        // addCategory adds a new button to the button array so the user can see the selected categories
         addCategory(){
             this.select = document.getElementById("select").value;
             this.selected.push(this.categoryData.find(element => element.name === this.select));
             this.selected.push()
         },
+        // removeCategory removes a category button so the user can remove a selected category
         removeCategory(name){
             this.selected.splice(this.selected.indexOf(this.selected.find(element => element.name === name)), 1);
         },

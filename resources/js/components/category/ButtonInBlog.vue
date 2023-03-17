@@ -11,6 +11,7 @@
     <script>
     export default {
         name: "home_category",
+        // props are paramater given by the parent
         props: {
             data: Object
         }

@@ -31,6 +31,7 @@ document.body.classList.add("loginBody");
 import axios from 'axios';
 
 export default {
+    // data presets
     data(){
         return {
             username: null,

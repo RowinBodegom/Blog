@@ -76,10 +76,13 @@ import blogbuilderCreate from "../components/blogbuilder/Create.vue";
 
 export default {
     name: "blogdetail",
+    // componets that we use in this template
     components: {smallCard,Comment,blogbuilderCreate,Image,Slideshow,WithoutTitle,WithTitle},
+    // props are paramater given by the parent
     props: {
         user: Object,
     },
+    // data presets
     data(){
         return {
             blogpost_id : this.$route.params.id,

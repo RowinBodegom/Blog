@@ -21,9 +21,11 @@
 
     export default {
         name: "blog-update",
+        // props are paramater given by the parent
         props: {
             data: Object,
         },
+        // data presets
         data(){
             return {
                 title: null,
@@ -32,9 +34,11 @@
             }
         },
         methods: {
+            // getFile gets the file form a input when input changes
             getFiles(){
                 this.img = this.$refs.files.files[0]
             },
+            // editBlog axios post updates the old data from a blogpost
             editBlog(id){
                 const data = new FormData()
                 data.append('title', this.data.title)

@@ -53,9 +53,11 @@ import axios from 'axios'
 
 export default {
     name: "blogbuilder-addimg",
+    // props are paramater given by the parent
     props: {
         data: Number,
     },
+    // data presets
     data(){
         return {
             blog_ID: this.data,
@@ -79,13 +81,16 @@ export default {
         })
     },
     methods: {
+        // getFile gets the file form a input when input changes
         getFiles($ref, $number){
             this.img[$number] = $ref.files[0];
         },
+        // changeImgType changes the type of the img before selecting the images
         changeImgType(){
             this.type = document.getElementById("select").value;
             this.img = [];
         },
+        // submit axios post creating a new row with images
         submit(){
             const data = new FormData()
 

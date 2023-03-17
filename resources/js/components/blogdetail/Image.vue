@@ -27,6 +27,7 @@ import axios from 'axios'
 
 export default {
     name: "blogdetail/Image",
+    // props are paramater given by the parent
     props: {
         data: Object,
         modifier: {
@@ -34,6 +35,7 @@ export default {
             required: false
         }
     },
+    // data presets
     data(){
         return {
             class: null,
@@ -58,22 +60,26 @@ export default {
                     break;
             }
         },
+        // getFile gets the file form a input when input changes
         getFiles(o){
             const element = document.getElementById(o);
             this.img = element.files[0];
         },
+        // when entering edit mode if the user clicks on the images this function will be activated to display the form for updating
         toggleShowEdit(element_id){
             if(this.showUpdateImg == false){
                 this.showUpdateImg = true;
                 document.getElementById(element_id).classList.toggle("blogdetail--show");
             }
         },
+        // when entering edit mode if the user clicks on the images this function will be activated to hide the form for updating
         toggleHideEdit(element_id){
             if(this.showUpdateImg == true){
                 this.showUpdateImg = false;
                 document.getElementById(element_id).classList.toggle("blogdetail--show");
             }
         },
+        // submit axios post sends data for updating the images
         submit($id){
             const data = new FormData()
 
@@ -85,6 +91,7 @@ export default {
                  window.location.reload()
             );
         },
+        // deleteImg axios post sends ID of the img to remove it from the database
         deleteImg($id){
             const data = new FormData()
 

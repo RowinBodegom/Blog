@@ -16,6 +16,7 @@
 <script>
 import axios from 'axios';
 export default {
+    // props are paramater given by the parent
     props: {
         user: {
             default: null,
@@ -26,6 +27,7 @@ export default {
             type: Object,
         },
     },
+    // data presets
     data(){
         return {
             followers: null,
@@ -56,6 +58,7 @@ export default {
         })
     },
     methods: {
+        // followPerson axios post to add a follower to a person
         followPerson(){
             const data = new FormData()
             data.append("followed_id", this.userData.id);
@@ -66,6 +69,7 @@ export default {
                 location.reload();
             });
         },
+        // unfollowPerson axios post to remove a follower from a person
         unfollowPerson(){
             axios.post("/api/unfollowPerson", {
             "id": this.check.id

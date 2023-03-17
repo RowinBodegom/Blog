@@ -20,9 +20,11 @@ import addimg from "../blogbuilder/addimg.vue";
 export default {
     name: "blogbuilder-create",
     components: {addtext,addimg},
+    // props are paramater given by the parent
     props: {
         data: Number,
     },
+    // data presets
     data() {
         return {
             showText: false,
@@ -30,6 +32,7 @@ export default {
         }
     },
     methods: {
+            // toggleCreateText turns the text forms on and the image form off
             toggleCreateText(){
                 if(this.showText === false){
                     this.showText = true;
@@ -38,6 +41,7 @@ export default {
                     this.showText = false;
                 }
             },
+            // toggleCreateText turns the image forms on and the text form off
             toggleCreateImg(){
                 if(this.showImg === false){
                     this.showImg = true;

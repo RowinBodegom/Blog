@@ -32,10 +32,13 @@
 
     export default {
         name: "home",
+        // componets that we use in this template
         components: {Card,Category,blogcreate,smallCard},
+        // props are paramater given by the parent
          props: {
             user: Object,
         },
+        // data presets
         data(){
             return {
                 cardData: [],

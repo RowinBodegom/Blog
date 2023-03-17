@@ -38,7 +38,9 @@
     import axios from 'axios'
     export default {
         name: "card",
+        // componets that we use in this template
         components: {Comment,blogUpdate},
+        // props are paramater given by the parent
         props: {
             data: Object,
             user: {
@@ -46,6 +48,7 @@
                 type: Object,
             },
         },
+        // data presets
         data(){
             return {
                 showUpdateBlog: false,
@@ -66,9 +69,11 @@
                 })
         },
         methods: {
+            // getFile gets the file form a input when input changes
             getFiles(){
                 this.img = this.$refs.files.files[0]
             },
+            // deleteblog axios post sends id to delete data
             deleteBlog(data){
                 axios.post("/api/deleteBlog/" + data)
                 .then((response) => {
@@ -78,24 +83,29 @@
                     console.warn(error);
                 })
             },
+            // sendToPost when called pushes the user to the view thats been given
             sendToPost($id){
                 this.$router.push({name:"blogdetail", params: {id: $id}});
             },
+            // showEditBlog when called shows the blogEdit features
             showEditBlog(data){
                 if(this.showUpdateBlog == false){
                     document.getElementById("update" + data).classList.toggle("card__update--show");
                     this.showUpdateBlog = true
                 }
             },
+            // showEditBlog when called hides the blogEdit features
             hideEditBlog(data){
                 if(this.showUpdateBlog == true){
                     document.getElementById("update" + data).classList.toggle("card__update--show");
                     this.showUpdateBlog = false
                 }
             },
+            // goToProfile when called pushes the user to the view thats been given
             goToProfile($id){
                 this.$router.get({name:"profile", params: {id: $id}});
             },
+            // reloadData axios get when called rewrites the old data with the new oness
             reloadData(){
                 axios.get("/api/reloadBlogData/" + this.item.id)
                 .then((response) => {

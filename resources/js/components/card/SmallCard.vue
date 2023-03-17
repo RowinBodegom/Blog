@@ -16,6 +16,7 @@
 <script>
 export default {
     name: "smallCard",
+    // props are paramater given by the parent
     props: {
         data: Object
     }

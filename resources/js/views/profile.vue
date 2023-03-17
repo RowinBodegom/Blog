@@ -40,7 +40,9 @@
     import followersCount from "../components/blog/Followers-count.vue";
     export default {
         name: 'profile',
+        // props are paramater given by the parent
         props: ["user"],
+        // data presets
         data(){
             return {
                 user_id : this.$route.params.id,
@@ -48,6 +50,7 @@
                 userData: [],
             }
         },
+        // componets that we use in this template
         components: {Card,blogcreate,followersCount},
         async created() {
             await axios.get('/api/getProfileCards/' + this.user_id)

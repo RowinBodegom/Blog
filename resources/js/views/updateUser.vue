@@ -19,9 +19,11 @@
 import axios from 'axios';
 
 export default {
+    // props are paramater given by the parent
     props: {
         user: Object,
     },
+    // data presets
     data(){
         return {
             name: null,
@@ -35,10 +37,12 @@ export default {
         }
     },
     methods: {
+        // getFile gets the file form a input when input changes
         getFiles(){
             this.profilePicture = this.$refs.profilePicture.files[0]
             this.banner = this.$refs.banner.files[0]
         },
+        // updateUser axios post sends new data so the old user data can be rewriten with the data given
         updateUser(){
             if(this.password === this.passwordAgain){
                 const data = new FormData()

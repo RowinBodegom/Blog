@@ -32,6 +32,7 @@
     import axios from 'axios';
 
 export default {
+    // data presets
     data(){
         return {
             username: null,
@@ -42,6 +43,7 @@ export default {
         }
     },
     methods: {
+        // sendRegisterRequest axios post sends data so it can be saved into the database
         sendRegisterRequest(){
             if(this.checkbox && this.password === this.repeat_password){
                 axios.post("/api/register", {

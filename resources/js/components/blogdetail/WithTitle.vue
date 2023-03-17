@@ -39,6 +39,7 @@ import axios from 'axios'
 
 export default {
     name: "blogdetail/WithTitle",
+    // props are paramater given by the parent
     props: {
         data: Object,
         modifier: {
@@ -46,6 +47,7 @@ export default {
             required: false
         }
     },
+    // data presets
     data(){
         return{
             edit:{
@@ -56,10 +58,12 @@ export default {
         }
     },
     methods: {
+        // changes the div with text to a input with the text content as value and the other way arround
         toggleForm($elementID){
             this.edit.id = $elementID;
             console.log(this.edit);
         },
+        // submit axios post sends the form changes to update database
         submit($id){
             const data = new FormData()
 
@@ -70,6 +74,7 @@ export default {
             axios.post("/api/blogdetail/update/text/", data)
             .then( this.toggleForm(null) )
         },
+        // deleteText axios post send id to delete data
         deleteText($id){
             const data = new FormData()
 

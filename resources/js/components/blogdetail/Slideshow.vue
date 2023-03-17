@@ -10,6 +10,7 @@
 <script>
 export default {
     name: "blogdetail/Slideshow",
+    // props are paramater given by the parent
     props: {
         data: Object,
         modifier: {

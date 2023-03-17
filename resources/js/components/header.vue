@@ -36,12 +36,14 @@
 
 import axios from 'axios';
 export default {
+    // props are paramater given by the parent
     props: {
         user: {
             default: null,
             type: Object,
         },
     },
+    // data presets
     data(){
         return{
             defaultPic: true,
@@ -53,17 +55,19 @@ export default {
         }
     },
     methods: {
+        // logout axios get gets the user data and clears the user from the session and sends the user to the login page
         logout(){
-                axios.get("/api/logout/" + this.user.id)
-                .then((response) => {
-                    document.getElementById("subMenu").classList.remove("header__submenubar--show");
-                    sessionStorage.clear();
-                    this.$router.push("/");
-                })
-                .catch((error) => {
-                    console.warn(error);
-                })
-            },
+            axios.get("/api/logout/" + this.user.id)
+            .then((response) => {
+                document.getElementById("subMenu").classList.remove("header__submenubar--show");
+                sessionStorage.clear();
+                this.$router.push("/");
+            })
+            .catch((error) => {
+                console.warn(error);
+            })
+        },
+        // showSub shows the dropdown menu
         showSub(){
             document.getElementById("subMenu").classList.toggle("header__submenubar--show");
         },
