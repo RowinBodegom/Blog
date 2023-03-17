@@ -89,6 +89,15 @@ class BlogController extends BaseController {
             "text" => $request->text,
         ]);
     }
+    public function blogdetailupdateElement_img(Request $request){
+        $file = $request->file('img');
+        $name = time() . "_" . $request->img->getClientOriginalName();
+        $file->storeAs("public/blogImage", $name, 'local');
+        
+        blogpostDetails_img::where('id', $request->id)->update([
+            "img" => $name,
+        ]);
+    }
     /**
      * ! the functions below are for the blogdetailbuilder feature
      */
