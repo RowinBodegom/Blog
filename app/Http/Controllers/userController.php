@@ -12,7 +12,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class userController extends BaseController {
-
+    /**
+     * editUser function
+     * updates the data of teh user when called
+     *
+     * @param Request $request
+     * @return Object
+     */
     public function editUser(Request $request){
         $user = User::where('id', $request->id)->first();
         $profilePictureName = null;
