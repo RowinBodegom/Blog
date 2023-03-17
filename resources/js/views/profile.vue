@@ -5,10 +5,10 @@
             <div class="profile__menu profile__menu--left">
                 <img class="profile__user--picture" :src="person"/>
                 <div class="profile__container--userdata">
-                    <div class="profile__user--name">{{ this.name }}</div> 
-                    <div class="profile__user--username">@{{ this.userData.username }}</div>
-                    <div class="profile__user--description">{{ this.userData.description }}</div>
-                    <followersCount/>
+                    <p class="profile__user--name">{{ userData.name }}</p>
+                    <p class="profile__user--username">{{ userData.username }}</p>
+                    <p class="profile__user--description">{{ userData.description }}</p>
+                    <followersCount v-if="userData.length !== 0" :userData="userData" :user="user"/>
                 </div>
                 
             </div>
@@ -26,7 +26,6 @@
 </template>
 
 <script setup>
-    
     import banner from "../../assets/luca-bravo-O453M2Liufs-unsplash.jpg";
     import person from "/storage/blogImage/standard_pfp.png";
     import logo from "../../assets/writing.png";
@@ -47,7 +46,6 @@
                 user_id : this.$route.params.id,
                 cardData: [],
                 userData: [],
-                name: '',
             }
         },
         components: {Card,blogcreate,followersCount},
@@ -55,20 +53,17 @@
             await axios.get('/api/getProfileCards/' + this.user_id)
                 .then(response =>{
                     this.cardData = response.data
-                }) 
-                
-                    .catch((error) => {
-                        console.warn(error)
-                    });
-                    
+                })
+                .catch((error) => {
+                    console.warn(error)
+                });
             await axios.get('/api/getUserData/' + this.user_id)
                 .then(response => {
                     this.userData = response.data
-                    this.name = this.userData.name.toUpperCase();
                 }) 
-                    .catch((error) => {
-                        console.warn(error)
-                    });
+                .catch((error) => {
+                    console.warn(error)
+                });
         },
     }
 </script>

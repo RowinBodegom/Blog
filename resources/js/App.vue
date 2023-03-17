@@ -10,7 +10,6 @@ import Footer from './components/Footer.vue';
 </script>
 
 <script>
-import axios from 'axios'
 
 export default {
     name: "app",

@@ -10,6 +10,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\followController;
 
 /*
 |--------------------------------------------------------------------------
@@ -104,4 +105,12 @@ Route::controller(CommentController::class)->group(function () {
  */
 Route::controller(userController::class)->group(function () {
     Route::post('/editUser', 'editUser');
+});
+
+Route::controller(followController::class)->group(function () {
+    Route::post('/followPerson', 'followPerson');
+    Route::post('/unfollowPerson', 'unfollowPerson');
+    Route::post('/getFollowers', 'getFollowers');
+    Route::post('/getFollowed', 'getFollowed');
+    Route::post('/checkFollow', 'checkFollow');
 });

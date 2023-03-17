@@ -2,13 +2,15 @@
     background-color: white;
     margin-bottom: 1.5rem;
     min-width: 100%;
+    padding: 1vw 0;
 
     &__container{
         display: flex;
-        margin: 0.6vw 5%;
-        width: 90%;
+        width: 100%;
         justify-content: space-between;
         align-items: center;
+        padding: 0 5%;
+        margin-bottom: 0.5rem;
 
         &--left {
             display: flex;
@@ -16,7 +18,6 @@
 
         &--right{
             display: flex;
-            justify-content: flex-end;
         }
     }
     &__pfp{
@@ -78,8 +79,12 @@
         font-family: $font-work;
         color: $lightGray;
     }
-    &__button{
+    &__container--button{
+        display: flex;
         margin-bottom: 1rem;
+        justify-content: space-between;
+    }
+    &__button{
         font-family: $font-work;
         border: 1px solid ;
         border-radius: 1rem;
@@ -95,8 +100,6 @@
             }
         }
         &--commentTotal{
-            margin-right: 5%;
-            float: right;
             color: $Blue;
             background-color: white;
             border-color: $Blue;
@@ -107,6 +110,6 @@
         }
     }
     &__description{
-        margin-left: 5%;
+        padding: 0 5%;
     }
 }
