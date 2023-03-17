@@ -19,36 +19,40 @@
                 
             </div>
             <div class="blogdetail__menu--right">
+                <div class="blogdetail__mode blogdetail__mode--edit" v-if="mode === 'edit'">
+                    je kan nu de pagina bewerken
+                </div>
+                <div class="blogdetail__mode blogdetail__mode--delete" v-else-if="mode === 'delete'">
+                    je kan nu stukken van de pagina verwijderen
+                </div>
                 <div class="blogdetail__container blogdetail__container--top">
                     <div>
                         <button class="blogdetail__button blogdetail__button--category" v-for="item of categoryData">{{item}}</button>
                     </div>
-                    <div class="blogdetail__container--icon">
-                        <img class="blogdetail__icon blogdetail__icon--update" src="../../assets/draw.png">
-                        <img class="blogdetail__icon blogdetail__icon--delete" src="../../assets/bin.png">
+                    <div v-if="user.userID === user_id" class="blogdetail__container--icon">
+                        <img @click="toggleEdit()" class="blogdetail__icon blogdetail__icon--update" src="../../assets/draw.png">
+                        <img @click="toggleDelete()" class="blogdetail__icon blogdetail__icon--delete" src="../../assets/bin.png">
                     </div>
                 </div>
                 <div class="blogdetail__text blogdetail__text--title">{{ mainData['title'] }}</div>
                 <div class="blogdetail__text blogdetail__text--opening">{{ mainData['text'] }}</div>
 
                 <div class="blogdetail__container--content" v-for="item of content">
-                    <Image v-if="item.type == 'afbeelding'" :data="item.data"/>
-                    <Slideshow v-if="item.type == 'diavoorstelling'" :data="item.data"/>
-                    <WithTitle v-if="item.type == 'met'" :data="item.data"/>
-                    <WithoutTitle v-if="item.type == 'zonder'" :data="item.data"/>
+                    <Image v-if="item.type == 'afbeelding'" :data="item.data" :modifier="mode"/>
+                    <Slideshow v-else-if="item.type == 'diavoorstelling'" :data="item.data" :modifier="mode"/>
+                    <WithTitle v-else-if="item.type == 'met'" :data="item.data" :modifier="mode"/>
+                    <WithoutTitle v-else-if="item.type == 'zonder'" :data="item.data" :modifier="mode"/>
                 </div>
 
-                <div class="blogdetail__container--builder">
+                <div v-if="user.userID === user_id" class="blogdetail__container--builder">
                     <blogbuilderCreate :data="parseInt(this.$route.params.id)"/>
                 </div>
-
 
                 <div class="blogdetail__reacties">
                     <div class="blogdetail__reacties--container">
                         <div class="blogdetail__reacties--title">reacties</div>
                         <Comment v-if="mainData" :data="[mainData.id, 'unlimited']"/>
                     </div>
-                    
                 </div>
             </div>
             
@@ -73,20 +77,24 @@ import blogbuilderCreate from "../components/blogbuilder/Create.vue";
 export default {
     name: "blogdetail",
     components: {smallCard,Comment,blogbuilderCreate,Image,Slideshow,WithoutTitle,WithTitle},
-    props: ["user"],
+    props: {
+        user: Object,
+    },
     data(){
         return {
             blogpost_id : this.$route.params.id,
             mainData : [], /** this is going to be an array */
             user_id : [],
+            loginUserId: null,
             categoryData : [],
             smallCardData : [],
             content : [],
+            mode: 'view',
         }
     },
     
     async created() {
-        await axios.get('/api/obtainBlogpostData/' + this.blogpost_id)
+        axios.get('/api/obtainBlogpostData/' + this.blogpost_id)
         .then((response) => {
                 this.mainData = response.data;
                 this.user_id = this.mainData['user_id']['id'];
@@ -94,7 +102,6 @@ export default {
         .catch((error) => {
             console.warn(error)
         })
-        
         await axios.get('/api/getLinkedCategoryBlogpost/' + this.blogpost_id)
         .then((response) => {
             if(response){
@@ -120,7 +127,24 @@ export default {
         .catch((error) => {
             console.warn(error)
         })
-    }
+    },
+    methods: {
+        toggleEdit(){
+            if(this.mode != 'edit'){
+                this.mode = 'edit';
+            } else {
+                this.mode = 'view'
+            }
+            
+        },
+        toggleDelete(){
+            if(this.mode != 'delete'){
+                this.mode = 'delete';
+            } else {
+                this.mode = 'view'
+            }
+        }
+    },
 }
 </script>
 
